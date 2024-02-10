@@ -1,7 +1,32 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <algorithm>
 using namespace std;
+
+void spauzdinimas(const vector<string>& mokiniuV, const vector<string>& mokiniuP, const vector<int>& egzrez, const vector<vector<int>>& ndrez)
+{
+	for (const auto& kas : mokiniuV)
+	{
+		cout << kas << " ";
+	}
+	for (const auto& kas : mokiniuP)
+	{
+		cout << kas << " ";
+	}
+	for (const auto& kiek : egzrez)
+	{
+		cout << kiek << " ";
+	}
+	for (const auto& eile : ndrez)
+	{
+		for (const auto& elem : eile)
+		{
+			cout << elem << " ";
+		}
+		cout << endl;
+	}
+}
 
 int main()
 {
@@ -37,26 +62,12 @@ int main()
 		ndrez.push_back(eile);
 	}
 
-	for (const auto& kas : mokiniuV)
+	for (auto& eile : ndrez)
 	{
-		cout << kas << " ";
+		sort(eile.begin(), eile.end());
 	}
-	for (const auto& kas : mokiniuP)
-	{
-		cout << kas << " ";
-	}
-	for (const auto& kiek : egzrez)
-	{
-		cout << kiek << " ";
-	}
-	for (const auto& eile : ndrez)
-	{
-		for (const auto& elem : eile)
-		{
-			cout << elem << " ";
-		}
-		cout << endl;
-	}
+
+	spauzdinimas(mokiniuV, mokiniuP, egzrez, ndrez);
 
 	return 0;
 }
