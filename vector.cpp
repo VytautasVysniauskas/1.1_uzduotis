@@ -4,27 +4,30 @@
 #include <algorithm>
 using namespace std;
 
-void spauzdinimas(const vector<string>& mokiniuV, const vector<string>& mokiniuP, const vector<int>& egzrez, const vector<vector<int>>& ndrez)
+void spauzdinimas(const vector<string>& mokiniuV, const vector<string>& mokiniuP)
 {
-	for (const auto& kas : mokiniuV)
+	char raide;
+	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
+	cin >> raide;
+
+	int dydis = min(mokiniuV.size(), mokiniuP.size());
+
+	std::cout << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(20) << left << "Galutinis (Vid.) / Galutinis (Med.)\n";
+	cout << "---------------------------------------------------------------------" << endl;
+
+	if (raide == 'V' || raide == 'v')
 	{
-		cout << kas << " ";
-	}
-	for (const auto& kas : mokiniuP)
-	{
-		cout << kas << " ";
-	}
-	for (const auto& kiek : egzrez)
-	{
-		cout << kiek << " ";
-	}
-	for (const auto& eile : ndrez)
-	{
-		for (const auto& elem : eile)
+		for (int i = 0; i < dydis; i++)
 		{
-			cout << elem << " ";
+			cout << setw(15) << left << mokiniuP[i] << setw(15) << left << mokiniuV[i] << endl;
 		}
-		cout << endl;
+	}
+	else
+	{
+		for (int i = 0; i < dydis; i++)
+		{
+			cout << setw(15) << left << mokiniuP[i] << setw(15) << left << mokiniuV[i] << endl;
+		}
 	}
 }
 
@@ -67,7 +70,7 @@ int main()
 		sort(eile.begin(), eile.end());
 	}
 
-	spauzdinimas(mokiniuV, mokiniuP, egzrez, ndrez);
+	spauzdinimas(mokiniuV, mokiniuP);
 
 	return 0;
 }
