@@ -25,12 +25,39 @@ void rikiavimas(duom M[], int i)
 	}
 }
 
-int main()
+void printinimas(duom M[], double rezm[], double rezv[], int sk)
 {
-	double rezv[25], rezm[25];
-	struct duom M[25];
-	int sk = 3;
 	char raide;
+	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
+	cin >> raide;
+
+	std::cout << std::setw(15) << std::left << "Pavarde" << std::setw(15) << std::left << "Vardas" << std::setw(20) << std::left << "Galutinis (Vid.) / Galutinis (Med.)\n";
+	cout << "---------------------------------------------------------------------" << endl;
+
+	if (raide == 'V' || raide == 'v')
+	{
+		for (int i = 0; i < sk; i++)
+		{
+			std::cout << std::setw(15) << std::left << M[i].pav << std::setw(15) << std::left << M[i].vard << std::setw(20) << std::left << std::fixed << std::setprecision(2) << rezv[i] << endl;
+
+		}
+	}
+
+	else
+	{
+		for (int i = 0; i < sk; i++)
+		{
+			std::cout << std::setw(15) << std::left << M[i].pav << std::setw(15) << std::left << M[i].vard << std::setw(20) << std::left << std::fixed << std::setprecision(2) << rezm[i] << endl;
+
+		}
+	}
+}
+
+void rankinisBudas(duom M[], double rezm[], double rezv[])
+{
+	int sk;
+	cout << "Iveskite studentu kieki: " << endl;
+	cin >> sk;
 
 	for (int i = 0; i < sk; i++)
 	{
@@ -61,29 +88,16 @@ int main()
 		}
 	}
 
-	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
-	cin >> raide;
+	printinimas(M, rezm, rezv, sk);
+}
 
-	std::cout << std::setw(15) << std::left << "Pavarde" << std::setw(15) << std::left << "Vardas" << std::setw(20) << std::left << "Galutinis (Vid.) / Galutinis (Med.)\n";
-	cout << "---------------------------------------------------------------------" << endl;
+int main()
+{
+	double rezv[25], rezm[25];
+	struct duom M[25];
+	char raide;
 
-	if (raide == 'V' || raide == 'v')
-	{
-		for (int i = 0; i < sk; i++)
-		{
-			std::cout << std::setw(15) << std::left << M[i].pav << std::setw(15) << std::left << M[i].vard << std::setw(20) << std::left << std::fixed << std::setprecision(2) << rezv[i] << endl;
-
-		}
-	}
-
-	else
-	{
-		for (int i = 0; i < sk; i++)
-		{
-			std::cout << std::setw(15) << std::left << M[i].pav << std::setw(15) << std::left << M[i].vard << std::setw(20) << std::left << std::fixed << std::setprecision(2) << rezm[i] << endl;
-
-		}
-	}
+	rankinisBudas(M, rezm, rezv);
 
 	return 0;
 }
