@@ -4,19 +4,18 @@
 #include <algorithm>
 using namespace std;
 
-void spauzdinimas(const vector<string>& mokiniuV, const vector<string>& mokiniuP, const vector<double>& vidurkis)
+void spauzdinimas(const vector<string>& mokiniuV, const vector<string>& mokiniuP, const vector<double>& vidurkis, const vector<double>& mediana)
 {
 	char raide;
 	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
 	cin >> raide;
 
-	int dydis = min(mokiniuV.size(), mokiniuP.size());
-
-	std::cout << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(20) << left << "Galutinis (Vid.) / Galutinis (Med.)\n";
-	cout << "---------------------------------------------------------------------" << endl;
+	int dydis = min({ mokiniuV.size(), mokiniuP.size(), vidurkis.size(), mediana.size() });
 
 	if (raide == 'V' || raide == 'v')
 	{
+		cout << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(20) << left << "Galutinis (Vid.)\n";
+		cout << "-----------------------------------------------------------------" << endl;
 		for (int i = 0; i < dydis; i++)
 		{
 			cout << setw(15) << left << mokiniuP[i] << setw(15) << left << mokiniuV[i] << setw(20) << left << fixed << std::setprecision(2) << vidurkis[i] << endl;
@@ -25,22 +24,47 @@ void spauzdinimas(const vector<string>& mokiniuV, const vector<string>& mokiniuP
 	}
 	else
 	{
+		cout << setw(15) << left << "Pavarde" << setw(15) << left << "Vardas" << setw(20) << left << "Galutinis (Med.)\n";
+		cout << "-----------------------------------------------------------------" << endl;
 		for (int i = 0; i < dydis; i++)
 		{
-			cout << setw(15) << left << mokiniuP[i] << setw(15) << left << mokiniuV[i] << endl;
+			cout << setw(15) << left << mokiniuP[i] << setw(15) << left << mokiniuV[i] << setw(20) << left << fixed << std::setprecision(2) << mediana[i] << endl;
+		}
+	}
+}
+
+void vidurys(vector<vector<int>>& ndrez, vector<double>& mediana)
+{
+	int size = ndrez.size();
+
+	for (int i = 0; i < size; i++)
+	{
+		int dydis = ndrez[i].size();
+
+		if (dydis % 2 == 0)
+		{
+			double vidurys1 = static_cast<double>(ndrez[i][dydis / 2]);
+			double vidurys2 = static_cast<double>(ndrez[i][dydis / 2 - 1]);
+			mediana.push_back((vidurys1 + vidurys2) / 2.0);
+		}
+		else
+		{
+			double vidurys = static_cast<double>(ndrez[i][dydis / 2]);
+			mediana.push_back(vidurys);
 		}
 	}
 }
 
 int main()
 {
-	int sk, test;
+	int sk, test, size;
 	string vardas, pav;
 	vector<string> mokiniuV;
 	vector<string> mokiniuP;
 	vector<vector<int>> ndrez;
 	vector<int>	egzrez;
 	vector<double> vidurkis;
+	vector<double> mediana;
 
 	while (1)
 	{
@@ -79,7 +103,8 @@ int main()
 		sort(eile.begin(), eile.end());
 	}
 
-	spauzdinimas(mokiniuV, mokiniuP, vidurkis);
+	vidurys(ndrez, mediana);
+	spauzdinimas(mokiniuV, mokiniuP, vidurkis, mediana);
 
 	return 0;
 }
