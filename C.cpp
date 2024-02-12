@@ -2,6 +2,32 @@
 #include <iomanip>
 using namespace std;
 
+void printinimas(string* vardai, string* pavardes, double rezm[], double rezv[], int dydis)
+{
+	char raide;
+	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
+	cin >> raide;
+
+	std::cout << std::setw(15) << std::left << "Pavarde" << std::setw(15) << std::left << "Vardas" << std::setw(20) << std::left << "Galutinis (Vid.) / Galutinis (Med.)\n";
+	cout << "---------------------------------------------------------------------" << endl;
+
+	if (raide == 'V' || raide == 'v')
+	{
+		for (int i = 0; i < dydis; i++)
+		{
+			cout << setw(15) << left << pavardes[i] << setw(15) << left << vardai[i] << setw(20) << left << fixed << setprecision(2) << rezv[i] << endl;
+		}
+	}
+
+	else
+	{
+		for (int i = 0; i < dydis; i++)
+		{
+			cout << setw(15) << left << pavardes[i] << setw(15) << left << vardai[i] << setw(20) << left << fixed << setprecision(2) << rezm[i] << endl;
+		}
+	}
+}
+
 void rikiavimas(int** ndRez, int ndDydziai[], int i)
 {
 	for (int j = 0; j < ndDydziai[i] - 1; j++)
@@ -26,7 +52,6 @@ int main()
 	int* ndDydziai = new int [pDydis];
 
 	double rezv[25], rezm[25];
-	char raide;
 
 	while (1)
 	{
@@ -104,17 +129,7 @@ int main()
 		dydis++;
 	}
 
-	for (int i = 0; i < dydis; i++)
-	{
-		cout << vardai[i] << " " << pavardes[i] << " " << rezv[i] << " "  << rezm[i] << endl;
-
-		for (int j = 0; j < ndDydziai[i]; j++)
-		{
-			cout << ndRez[i][j] << " ";
-		}
-
-		cout << endl << endl;
-	}
+	printinimas(vardai, pavardes, rezm, rezv, dydis);
 
 	return 0;
 }
