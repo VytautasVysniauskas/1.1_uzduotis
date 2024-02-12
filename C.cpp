@@ -2,15 +2,28 @@
 #include <iomanip>
 using namespace std;
 
+void rikiavimas(int** ndRez, int ndDydziai[], int i)
+{
+	for (int j = 0; j < ndDydziai[i] - 1; j++)
+	{
+		for (int z = j; z < ndDydziai[i]; z++)
+		{
+			if (ndRez[i][j] > ndRez[i][z])
+			{
+				swap(ndRez[i][j], ndRez[i][z]);
+			}
+		}
+	}
+}
+
 int main()
 {
 	string vardas, pav;
-	int pDydis = 5, test, dydis = 0, sk;
+	int pDydis = 1, egzRez, dydis = 0, sk;
 	string* vardai = new string[pDydis];
 	string* pavardes = new string[pDydis];
-	int* egzRez = new int[pDydis];
 	int** ndRez = new int* [pDydis];
-	int* ndDydziai = new int[pDydis];
+	int* ndDydziai = new int [pDydis];
 
 	double rezv[25], rezm[25];
 	char raide;
@@ -18,8 +31,8 @@ int main()
 	while (1)
 	{
 		cout << "Rasykite 3 dalykus: mokinio varda, pavarde ir egzamino rezultata. Jei norite daugiau neberasyti, rasykite 0 kaip viena is rezultatu" << endl;
-		cin >> vardas >> pav >> test;
-		if (vardas == "0" || pav == "0" || test == 0)
+		cin >> vardas >> pav >> egzRez;
+		if (vardas == "0" || pav == "0" || egzRez == 0)
 		{
 			break;
 		}
@@ -29,7 +42,6 @@ int main()
 			pDydis = pDydis * 2;
 			string* nVardai = new string[pDydis];
 			string* nPavardes = new string[pDydis];
-			int* nEgzRez = new int[pDydis];
 			int** nNdRez = new int* [pDydis];
 			int* nNdDydziai = new int[pDydis];
 
@@ -37,25 +49,23 @@ int main()
 			{
 				nVardai[i] = vardai[i];
 				nPavardes[i] = pavardes[i];
-				nEgzRez[i] = egzRez[i];
 				nNdRez[i] = ndRez[i];
 				nNdDydziai[i] = ndDydziai[i];
 			}
 
 			delete[] vardai;
 			delete[] pavardes;
-			delete[] egzRez;
 			delete[] ndRez;
 			delete[] ndDydziai;
 
 			vardai = nVardai;
 			pavardes = nPavardes;
-			egzRez = nEgzRez;
 			ndRez = nNdRez;
 			ndDydziai = nNdDydziai;
 		}
 
 		int ndDydis = 0;
+		int vid = 0;
 		ndRez[dydis] = new int[100];
 
 		while (1)
@@ -68,13 +78,17 @@ int main()
 			}
 			ndRez[dydis][ndDydis] = sk;
 			ndDydis++;
+			vid = vid + sk;
 		}
-
 
 		vardai[dydis] = vardas;
 		pavardes[dydis] = pav;
-		egzRez[dydis] = test;
 		ndDydziai[dydis] = ndDydis;
+
+		rezv[dydis] = egzRez * 0.6 + vid * 0.4;
+
+		rikiavimas(ndRez, ndDydziai, dydis);
+
 		dydis++;
 	}
 
