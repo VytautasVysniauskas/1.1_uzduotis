@@ -65,7 +65,7 @@ int main()
 		}
 
 		int ndDydis = 0;
-		int vid = 0;
+		double vid = 0.0;
 		ndRez[dydis] = new int[100];
 
 		while (1)
@@ -85,16 +85,28 @@ int main()
 		pavardes[dydis] = pav;
 		ndDydziai[dydis] = ndDydis;
 
+		vid = vid / ndDydis;
 		rezv[dydis] = egzRez * 0.6 + vid * 0.4;
 
 		rikiavimas(ndRez, ndDydziai, dydis);
+
+		if (ndDydis % 2 == 0)
+		{
+			int v = ndDydis / 2;
+			rezm[dydis] = (ndRez[dydis][v - 1] + ndRez[dydis][v]) / 2.0;
+		}
+		else
+		{
+			int v = (ndDydis - 1) / 2;
+			rezm[dydis] = ndRez[dydis][v];
+		}
 
 		dydis++;
 	}
 
 	for (int i = 0; i < dydis; i++)
 	{
-		cout << vardai[i] << " " << pavardes[i] << " " << egzRez[i] << " " << endl;
+		cout << vardai[i] << " " << pavardes[i] << " " << rezv[i] << " "  << rezm[i] << endl;
 
 		for (int j = 0; j < ndDydziai[i]; j++)
 		{
