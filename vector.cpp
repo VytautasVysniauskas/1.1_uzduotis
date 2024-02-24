@@ -57,51 +57,51 @@ void vidurys(vector<vector<int>>& ndrez, vector<double>& mediana)
 
 void skaitymasRanka(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<vector<int>>& ndrez, vector<int>& egzrez, vector<double>& vidurkis)
 {
-	string vardas, pav;
-	int sk, test;
+    string vardas, pav;
+    int sk, test;
 
-	while (1)
-	{
-		cout << "Rasykite mokinio varda. Jeigu daugiau nebenorite rasyti, rasykite 0." << endl;
-		cin >> vardas;
-		if (vardas == "0")
-		{
-			break;
-		}
+    while (1)
+    {
+        cout << "Rasykite mokinio varda. Jeigu daugiau nebenorite rasyti, rasykite 0." << endl;
+        cin >> vardas;
+        if (vardas == "0")
+        {
+            break;
+        }
 
-		cout << "Rasykite mokinio pavarda:" << endl;
-		cin >> pav;
+        cout << "Rasykite mokinio pavarda:" << endl;
+        cin >> pav;
 
-		mokiniuV.push_back(vardas);
-		mokiniuP.push_back(pav);
+        mokiniuV.push_back(vardas);
+        mokiniuP.push_back(pav);
 
-		vector<int> eile;
-		double x = 0.0;
+        vector<int> eile;
+        double x = 0.0;
 
-		while (1)
-		{
-			cout << "Rasykite sekanti mokinio nd rezultata. Jeigu norite baigti, rasykite 0" << endl;
-			cin >> sk;
-			if (sk == 0)
-			{
-				break;
-			}
-			x = x + sk;
-			eile.push_back(sk);
-		}
+        while (1)
+        {
+            cout << "Rasykite sekanti mokinio nd rezultata. Jeigu norite baigti, rasykite 0" << endl;
+            cin >> sk;
+            if (sk == 0)
+            {
+                break;
+            }
+            x = x + sk;
+            eile.push_back(sk);
+        }
 
-		cout << "Rasykite mokinio egzamino rezultata:" << endl;
-		cin >> test;
-		egzrez.push_back(test);
+        cout << "Rasykite mokinio egzamino rezultata:" << endl;
+        cin >> test;
+        egzrez.push_back(test);
 
-		if (!eile.empty())
-		{
-			x = x / eile.size();
-			vidurkis.push_back(0.4 * x + 0.6 * test);
-		}
+        if (!eile.empty())
+        {
+            x = x / eile.size();
+            vidurkis.push_back(0.4 * x + 0.6 * test);
+        }
 
-		ndrez.push_back(eile);
-	}
+        ndrez.push_back(eile);
+    }
 }
 
 int skaitymasFailo(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<vector<int>>& ndrez, vector<int>& egzrez, vector<double>& vidurkis)
@@ -113,7 +113,7 @@ int skaitymasFailo(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<ve
 	cin >> fileV;
 
 	FILE* myFile = fopen(fileV.c_str(), "r");
-	if (!myFile)
+	if (!myFile) 
 	{
 		cerr << "Problema bandant atidaryti faila. Programa bus uzdaroma." << endl;
 		return 0;
@@ -127,11 +127,11 @@ int skaitymasFailo(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<ve
 		cout << "Read value: " << trash << endl;
 
 		int c;
-		while ((c = fgetc(myFile)) != EOF && c != '\n')
+		while ((c = fgetc(myFile)) != EOF && c != '\n') 
 		{
 		}
 
-		if (c == '\n')
+		if (c == '\n') 
 		{
 			break;
 		}
@@ -170,7 +170,7 @@ int skaitymasFailo(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<ve
 			x = x / eile.size();
 			vidurkis.push_back(0.4 * x + 0.6 * test);
 		}
-
+		
 		ndrez.push_back(eile);
 	}
 
@@ -181,6 +181,8 @@ int skaitymasFailo(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<ve
 
 int main()
 {
+	char raide;
+
 	vector<string> mokiniuV;
 	vector<string> mokiniuP;
 	vector<vector<int>> ndrez;
@@ -188,7 +190,20 @@ int main()
 	vector<double> vidurkis;
 	vector<double> mediana;
 
-	skaitymasRanka(mokiniuV, mokiniuP, ndrez, egzrez, vidurkis);
+	cout << "Pasrinkite ar norite duomenys rasyti ranka, ar skaityti is failo. Rasykite atitinkama raide." << endl << "Rasyti ranka (R) / Skaityti is failo (F)" << endl;
+	cin >> raide;
+
+	if (raide == 'R' || raide == 'r')
+	{
+		skaitymasRanka(mokiniuV, mokiniuP, ndrez, egzrez, vidurkis);
+	}
+	else
+	{
+		if (skaitymasFailo(mokiniuV, mokiniuP, ndrez, egzrez, vidurkis) == 0)
+		{
+			return 0;
+		}
+	}
 
 	for (auto& eile : ndrez)
 	{
