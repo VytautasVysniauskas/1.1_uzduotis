@@ -217,6 +217,45 @@ int skaitymasFailo(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<ve
 	return 1;
 }
 
+void rikiavimas(mokiniai M[], int dydis, char pasirinkimas)
+{
+	for (int i = 0; i < dydis - 1; i++)
+	{
+		for (int j = i; j < dydis; j++)
+		{
+			if (pasirinkimas == 'V' || pasirinkimas == 'v')
+			{
+				if (M[i].name > M[j].name)
+				{
+					swap(M[i], M[j]);
+				}
+			}
+			else if (pasirinkimas == 'P' || pasirinkimas == 'p')
+			{
+				if (M[i].surname > M[j].surname)
+				{
+					swap(M[i], M[j]);
+				}
+
+			}
+			else if (pasirinkimas == 'A' || pasirinkimas == 'a')
+			{
+				if (M[i].average < M[j].average)
+				{
+					swap(M[i], M[j]);
+				}
+			}
+			else
+			{
+				if (M[i].med < M[j].med)
+				{
+					swap(M[i], M[j]);
+				}
+			}
+		}
+	}
+}
+
 int main()
 {
 	struct mokiniai M[10000];
@@ -260,8 +299,24 @@ int main()
 		M[i].med = mediana[i];
 	}
 
-	//cout << "Pasirinkite pagal ka norite surusiuoti rezultatas (Mazejimo tvarka)" << endl << "Vardus (V) / Pavardes (P) / Gal. Vidurki (A) / Gal. Mediana (M)" << endl;
-	//cin >> raide;
+	cout << "Pasirinkite pagal ka norite surusiuoti rezultatas (Mazejimo tvarka arba abaceles didejimo)" << endl << "Vardus (V) / Pavardes (P) / Gal. Vidurki (A) / Gal. Mediana (M)" << endl;
+	cin >> raide;
+	if (raide == 'V' || raide == 'v')
+	{
+		rikiavimas(M, dydis, raide);
+	}
+	else if (raide == 'P' || raide == 'p')
+	{
+		rikiavimas(M, dydis, raide);
+	}
+	else if (raide == 'A' || raide == 'a')
+	{
+		rikiavimas(M, dydis, raide);
+	}
+	else
+	{
+		rikiavimas(M, dydis, raide);
+	}
 
 	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (E)" << endl;
 	cin >> raide;
