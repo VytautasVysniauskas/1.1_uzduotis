@@ -4,7 +4,12 @@
 #include <algorithm>
 using namespace std;
 
-void spauzdinimas(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<double>& vidurkis, vector<double>& mediana)
+void spauzdinimasFaile(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<double>& vidurkis, vector<double>& mediana)
+{
+
+}
+
+void spauzdinimasEkrane(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<double>& vidurkis, vector<double>& mediana)
 {
 	char raide;
 	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
@@ -105,7 +110,7 @@ void skaitymasRanka(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<v
 }
 
 int skaitymasFailo(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<vector<int>>& ndrez, vector<int>& egzrez, vector<double>& vidurkis)
-{	
+{
 	string fileV;
 	char vardas[100], pav[100], trash[100];
 	int sk, test, ndSk = 0;
@@ -205,7 +210,19 @@ int main()
 	}
 
 	vidurys(ndrez, mediana);
-	spauzdinimas(mokiniuV, mokiniuP, vidurkis, mediana);
+
+	char pas;
+	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (E)" << endl;
+	cin >> pas;
+
+	if (pas == 'E' || pas == 'e')
+	{
+		spauzdinimasEkrane(mokiniuV, mokiniuP, vidurkis, mediana);
+	}
+	else
+	{
+		spauzdinimasFaile(mokiniuV, mokiniuP, vidurkis, mediana)
+	}
 
 	return 0;
 }
