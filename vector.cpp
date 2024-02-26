@@ -4,7 +4,15 @@
 #include <algorithm>
 using namespace std;
 
-void spauzdinimasFaile(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<double>& vidurkis, vector<double>& mediana)
+struct mokiniai
+{
+	string name;
+	string surname;
+	double average;
+	double med;
+};
+
+void spauzdinimasFaile(mokiniai M[], int dydis)
 {
 	string rFailasPav;
 	cout << "Iveskite failo pavadinima, kuriame bus isvedami rezultatai." << endl;
@@ -16,8 +24,6 @@ void spauzdinimasFaile(vector<string>& mokiniuV, vector<string>& mokiniuP, vecto
 	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
 	cin >> raide;
 
-	int dydis = min({ mokiniuV.size(), mokiniuP.size(), vidurkis.size(), mediana.size() });
-
 	if (raide == 'V' || raide == 'v')
 	{
 		fprintf(rFailas, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Vid.)");
@@ -25,7 +31,7 @@ void spauzdinimasFaile(vector<string>& mokiniuV, vector<string>& mokiniuP, vecto
 
 		for (int i = 0; i < dydis; i++)
 		{
-			fprintf(rFailas, "%-15s%-15s%-20.2f\n", mokiniuP[i].c_str(), mokiniuV[i].c_str(), vidurkis[i]);
+			fprintf(rFailas, "%-15s%-15s%-20.2f\n", M[i].surname.c_str(), M[i].name.c_str(), M[i].average);
 		}
 	}
 	else
@@ -35,7 +41,7 @@ void spauzdinimasFaile(vector<string>& mokiniuV, vector<string>& mokiniuP, vecto
 
 		for (int i = 0; i < dydis; i++)
 		{
-			fprintf(rFailas, "%-15s%-15s%-20.2f\n", mokiniuP[i].c_str(), mokiniuV[i].c_str(), mediana[i]);
+			fprintf(rFailas, "%-15s%-15s%-20.2f\n", M[i].surname.c_str(), M[i].name.c_str(), M[i].med);
 		}
 	}
 
@@ -45,13 +51,11 @@ void spauzdinimasFaile(vector<string>& mokiniuV, vector<string>& mokiniuP, vecto
 
 }
 
-void spauzdinimasEkrane(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<double>& vidurkis, vector<double>& mediana)
+void spauzdinimasEkrane(mokiniai M[], int dydis)
 {
 	char raide;
 	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
 	cin >> raide;
-
-	int dydis = min({ mokiniuV.size(), mokiniuP.size(), vidurkis.size(), mediana.size() });
 
 	if (raide == 'V' || raide == 'v')
 	{
@@ -59,8 +63,7 @@ void spauzdinimasEkrane(vector<string>& mokiniuV, vector<string>& mokiniuP, vect
 		cout << "-----------------------------------------------------------------" << endl;
 		for (int i = 0; i < dydis; i++)
 		{
-			cout << setw(15) << left << mokiniuP[i] << setw(15) << left << mokiniuV[i] << setw(20) << left << fixed << std::setprecision(2) << vidurkis[i] << endl;
-			;
+			cout << setw(15) << left << M[i].surname << setw(15) << left << M[i].name << setw(20) << left << fixed << std::setprecision(2) << M[i].average << endl;
 		}
 	}
 	else
@@ -69,7 +72,7 @@ void spauzdinimasEkrane(vector<string>& mokiniuV, vector<string>& mokiniuP, vect
 		cout << "-----------------------------------------------------------------" << endl;
 		for (int i = 0; i < dydis; i++)
 		{
-			cout << setw(15) << left << mokiniuP[i] << setw(15) << left << mokiniuV[i] << setw(20) << left << fixed << std::setprecision(2) << mediana[i] << endl;
+			cout << setw(15) << left << M[i].surname << setw(15) << left << M[i].name << setw(20) << left << fixed << std::setprecision(2) << M[i].med << endl;
 		}
 	}
 }
@@ -216,6 +219,7 @@ int skaitymasFailo(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<ve
 
 int main()
 {
+	struct mokiniai M[10000];
 	char raide;
 
 	vector<string> mokiniuV;
@@ -247,36 +251,28 @@ int main()
 
 	vidurys(ndrez, mediana);
 
-	cout << "Pasirinkite pagal ka norite surusiuoti rezultatas (Mazejimo tvarka)" << endl << "Vardus (V) / Pavardes (P) / Gal Vidurki (A) / Gal Mediana (M)" << endl;
-	cin >> raide;
-
-	if (raide == 'V' || raide == 'v')
+	int dydis = min({ mokiniuV.size(), mokiniuP.size(), vidurkis.size(), mediana.size() });
+	for (int i = 0; i < dydis; i++)
 	{
-
+		M[i].name = mokiniuV[i];
+		M[i].surname = mokiniuP[i];
+		M[i].average = vidurkis[i];
+		M[i].med = mediana[i];
 	}
-	else if (raide == 'P' || raide == 'p')
-	{
 
-	}
-	else if (raide == 'A' || raide == 'a')
-	{
-
-	}
-	else
-	{
-
-	}
+	//cout << "Pasirinkite pagal ka norite surusiuoti rezultatas (Mazejimo tvarka)" << endl << "Vardus (V) / Pavardes (P) / Gal. Vidurki (A) / Gal. Mediana (M)" << endl;
+	//cin >> raide;
 
 	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (E)" << endl;
 	cin >> raide;
 
 	if (raide == 'E' || raide == 'e')
 	{
-		spauzdinimasEkrane(mokiniuV, mokiniuP, vidurkis, mediana);
+		spauzdinimasEkrane(M, dydis);
 	}
 	else
 	{
-		spauzdinimasFaile(mokiniuV, mokiniuP, vidurkis, mediana);
+		spauzdinimasFaile(M, dydis);
 	}
 
 	return 0;
