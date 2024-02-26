@@ -6,6 +6,42 @@ using namespace std;
 
 void spauzdinimasFaile(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<double>& vidurkis, vector<double>& mediana)
 {
+	string rFailasPav;
+	cout << "Iveskite failo pavadinima, kuriame bus isvedami rezultatai." << endl;
+	cin >> rFailasPav;
+
+	FILE* rFailas = fopen(rFailasPav.c_str(), "w");
+
+	char raide;
+	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
+	cin >> raide;
+
+	int dydis = min({ mokiniuV.size(), mokiniuP.size(), vidurkis.size(), mediana.size() });
+
+	if (raide == 'V' || raide == 'v')
+	{
+		fprintf(rFailas, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Vid.)");
+		fprintf(rFailas, "-----------------------------------------------------------------\n");
+
+		for (int i = 0; i < dydis; i++)
+		{
+			fprintf(rFailas, "%-15s%-15s%-20.2f\n", mokiniuP[i].c_str(), mokiniuV[i].c_str(), vidurkis[i]);
+		}
+	}
+	else
+	{
+		fprintf(rFailas, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Vid.)");
+		fprintf(rFailas, "-----------------------------------------------------------------\n");
+
+		for (int i = 0; i < dydis; i++)
+		{
+			fprintf(rFailas, "%-15s%-15s%-20.2f\n", mokiniuP[i].c_str(), mokiniuV[i].c_str(), mediana[i]);
+		}
+	}
+
+	cout << "Rezultatai isvesti faile: " << rFailasPav << endl;
+
+	fclose(rFailas);
 
 }
 
@@ -211,17 +247,36 @@ int main()
 
 	vidurys(ndrez, mediana);
 
-	char pas;
-	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (E)" << endl;
-	cin >> pas;
+	cout << "Pasirinkite pagal ka norite surusiuoti rezultatas (Mazejimo tvarka)" << endl << "Vardus (V) / Pavardes (P) / Gal Vidurki (A) / Gal Mediana (M)" << endl;
+	cin >> raide;
 
-	if (pas == 'E' || pas == 'e')
+	if (raide == 'V' || raide == 'v')
+	{
+
+	}
+	else if (raide == 'P' || raide == 'p')
+	{
+
+	}
+	else if (raide == 'A' || raide == 'a')
+	{
+
+	}
+	else
+	{
+
+	}
+
+	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (E)" << endl;
+	cin >> raide;
+
+	if (raide == 'E' || raide == 'e')
 	{
 		spauzdinimasEkrane(mokiniuV, mokiniuP, vidurkis, mediana);
 	}
 	else
 	{
-		spauzdinimasFaile(mokiniuV, mokiniuP, vidurkis, mediana)
+		spauzdinimasFaile(mokiniuV, mokiniuP, vidurkis, mediana);
 	}
 
 	return 0;
