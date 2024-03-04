@@ -13,7 +13,7 @@ int main()
 	vector<double> vidurkis;
 	vector<double> mediana;
 
-	cout << "Pasrinkite ar norite duomenys rasyti ranka, ar skaityti is failo. Rasykite atitinkama raide." << endl << "Rasyti ranka (R) / Skaityti is failo (F)" << endl;
+	cout << "Pasrinkite ar norite duomenys rasyti ranka, ar skaityti is failo. Rasykite atitinkama raide." << endl << "Rasyti ranka - (R) / Skaityti is failo - bet koks kitas zenklas" << endl;
 	cin >> raide;
 
 	if (raide == 'R' || raide == 'r')
@@ -44,7 +44,7 @@ int main()
 		M[i].med = mediana[i];
 	}
 
-	cout << "Pasirinkite pagal ka norite surusiuoti rezultatas (Mazejimo tvarka arba abaceles didejimo)" << endl << "Vardus (V) / Pavardes (P) / Gal. Vidurki (A) / Gal. Mediana (M)" << endl;
+	cout << "Pasirinkite pagal ka norite surusiuoti rezultatas (Mazejimo tvarka arba abaceles didejimo)" << endl << "Vardus (V) / Pavardes (P) / Gal. Vidurki (A) / Gal. Mediana (bet koks kitas zenklas)" << endl;
 	cin >> raide;
 	if (raide == 'V' || raide == 'v')
 	{
@@ -63,7 +63,7 @@ int main()
 		rikiavimas(M, dydis, raide);
 	}
 
-	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (E)" << endl;
+	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (bt koks kitas zenklas)" << endl;
 	cin >> raide;
 
 	if (raide == 'E' || raide == 'e')
