@@ -11,7 +11,7 @@ void spauzdinimasFaile(mokiniai M[], int dydis)
 	FILE* rFailas = fopen(rFailasPav.c_str(), "w");
 
 	char raide;
-	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
+	cout << "Ar norite naudoti vidurki ar mediana?" << endl << "Vidurki (V) / Mediana (bet koks kitas zenklas)";
 	cin >> raide;
 
 	if (raide == 'V' || raide == 'v')
@@ -44,7 +44,7 @@ void spauzdinimasFaile(mokiniai M[], int dydis)
 void spauzdinimasEkrane(mokiniai M[], int dydis)
 {
 	char raide;
-	cout << "Ar norite naudoti vidurki ar mediana? (Iveskite V arva M)" << endl;
+	cout << "Ar norite naudoti vidurki ar mediana?" << endl << "Vidurki (V) / Mediana (bet koks kitas zenklas)";
 	cin >> raide;
 
 	if (raide == 'V' || raide == 'v')
