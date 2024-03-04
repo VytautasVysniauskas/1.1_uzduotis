@@ -96,36 +96,134 @@ void skaitymasRanka(vector<string>& mokiniuV, vector<string>& mokiniuP, vector<v
 
 	while (1)
 	{
-		cout << "Rasykite mokinio varda. Jeigu daugiau nebenorite rasyti, rasykite 0." << endl;
-		cin >> vardas;
-		if (vardas == "0")
+		int breakas = 0;
+
+		while (1)
 		{
-			break;
+			try
+			{
+				cout << "Iveskite mokinio varda. Jei nebenorite rasyti, iveskite 0:" << endl;
+				cin >> vardas;
+
+				if (vardas.find_first_of("0") != string::npos)
+				{
+					breakas = 1;
+					break;
+				}
+				if (vardas.find_first_of("123456789") != string::npos)
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					throw runtime_error("Bloga ivestis, iveskite mokinio varda be skaiciu arba 0 jeigu nebenorite rasyti.");
+				}
+				else
+				{
+					break;
+				}
+			}
+			catch (const exception& e)
+			{
+				cerr << "Klaida: " << e.what() << endl;
+			}
 		}
 
-		cout << "Rasykite mokinio pavarda:" << endl;
-		cin >> pav;
+		if (breakas) break;
+
+		while (1) 
+		{
+			try 
+			{
+				cout << "Iveskite mokinio pavarde:" << endl;
+				cin >> pav;
+
+				if (pav.find_first_of("0123456789") == string::npos) 
+				{
+					break;
+				}
+				else
+				{
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					throw runtime_error("Bloga ivestis, iveskite mokinio pavarde be skaiciu.");
+				}
+			}
+			catch (const exception& e) 
+			{
+				cerr << "Klaida: " << e.what() << endl;
+			}
+		}
 
 		mokiniuV.push_back(vardas);
 		mokiniuP.push_back(pav);
 
 		vector<int> eile;
 		double x = 0.0;
+		breakas = 0;
 
 		while (1)
 		{
-			cout << "Rasykite sekanti mokinio nd rezultata. Jeigu norite baigti, rasykite 0" << endl;
-			cin >> sk;
-			if (sk == 0)
+			while (1) 
 			{
-				break;
+				try 
+				{
+					cout << "Iveskite sekanti nd rezultata. Jei ju nebera, iveskite 0. " << endl;
+					cin >> sk;
+
+					if (cin.fail()) 
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						throw runtime_error("Neteisinga ivestis. Iveskite sveika skaiciu.");
+					}
+					else if (sk == 0 && x == 0)
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						throw runtime_error("Turi buti iraasytas bent vienas ND rezultatas.");
+					}
+					else if (sk == 0 && x != 0)
+					{
+						breakas = 1;
+						break;
+					}
+					else 
+					{
+						break;
+					}
+				}
+				catch (const exception& e) {
+					cerr << "Klaida: " << e.what() << endl;
+				}
 			}
+			if (breakas) break;
+
 			x = x + sk;
 			eile.push_back(sk);
 		}
 
-		cout << "Rasykite mokinio egzamino rezultata:" << endl;
-		cin >> test;
+		while (1) 
+		{
+			try
+			{
+				cout << "Irasykite mokinio egzamino rezultata:" << endl;
+				cin >> sk;
+
+				if (cin.fail()) 
+				{
+					cin.clear(); 
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					throw runtime_error("Neteisinga ivestis. Irasykite sveika skaiciu");
+				}
+				else 
+				{
+					break; 
+				}
+			}
+			catch (const exception& e) 
+			{
+				cerr << "Klaida: " << e.what() << endl;
+			}
+		}
 		egzrez.push_back(test);
 
 		if (!eile.empty())
