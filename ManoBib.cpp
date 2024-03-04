@@ -1,12 +1,6 @@
 #include "ManoBib.h"
-
-struct mokiniai
-{
-	string name;
-	string surname;
-	double average;
-	double med;
-};
+#include "Bibliotekos.h"
+using namespace std;
 
 void spauzdinimasFaile(mokiniai M[], int dydis)
 {
