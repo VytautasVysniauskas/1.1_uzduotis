@@ -4,5 +4,3 @@
 #include <vector>
 #include <algorithm>
 #include "ManoBib.h"
-
-using namespace std;
