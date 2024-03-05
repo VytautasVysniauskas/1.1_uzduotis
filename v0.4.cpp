@@ -13,6 +13,14 @@ int main()
 	vector<double> vidurkis;
 	vector<double> mediana;
 
+	cout << "Ar norite generuoti duomenys?" << endl << "(T) - taip / (bet koks kitas simbolis) - ne" << endl;
+	cin >> raide;
+
+	if (raide == 'T' || raide == 't')
+	{
+		kiekGeneruoti();
+	}
+
 	cout << "Pasrinkite ar norite duomenys rasyti ranka, ar skaityti is failo. Rasykite atitinkama raide." << endl << "Rasyti ranka - (R) / Skaityti is failo - bet koks kitas zenklas" << endl;
 	cin >> raide;
 
