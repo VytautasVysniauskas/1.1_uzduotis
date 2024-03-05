@@ -15,3 +15,5 @@ void vidurys(vector<vector<int>>&, vector<double>&);
 void skaitymasRanka(vector<string>&, vector<string>&, vector<vector<int>>&, vector<int>&, vector<double>&);
 int skaitymasFailo(vector<string>&, vector<string>&, vector<vector<int>>&, vector<int>&, vector<double>&);
 void rikiavimas(mokiniai[], int, char);
+void duomenuGeneravimas(int);
+void kiekGeneruoti();
