@@ -344,7 +344,71 @@ void rikiavimas(mokiniai M[], int dydis, char pasirinkimas)
 	}
 }
 
-void duomenuGeneravimas(mokiniai M[],)
+void duomenuGeneravimas(int kiek)
 {
+	int DK = 100 * pow(10, kiek);
+	if (DK % 10 != 0)
+	{
+		DK++;
+	}
 
+	random_device RD;
+	mt19937 gen(RD());
+	uniform_int_distribution<int> intervalas(10, 20);
+	int ndSkaicius = intervalas(gen);
+
+	string fileV;
+	cout << "Iveskite failo pavadinima, kuriame norite sugeneruoti savo duomenis." << endl;
+	cin >> fileV;
+
+	FILE* myFile = fopen(fileV.c_str(), "w");
+
+	fprintf(myFile, "%-26s%-26s", "Vardas", "Pavarde");
+	for (int i = 1; i <= ndSkaicius; i++)
+	{
+		fprintf(myFile, "%s%-8d", "ND", i);
+	}
+	fprintf(myFile, "%s\n", "Egz.");
+
+	for (int i = 1; i <= DK; i++)
+	{
+		fprintf(myFile, "%s%-20d%s%-20d", "Vardas", i, "Pavarde", i);
+		for (int j = 1; j <= ndSkaicius; j++)
+		{
+			uniform_int_distribution<int> pazGen(1, 10);
+			int ndRezultatas = pazGen(gen);
+			fprintf(myFile, "%-10d", ndRezultatas);
+		}
+		uniform_int_distribution<int> egzGen(1, 10);
+		int egzRezultatas = egzGen(gen);
+		fprintf(myFile, "%d\n", egzRezultatas);
+	}
+}
+
+void kiekGeneruoti()
+{
+	char raide;
+
+	cout << "Pasirinkite kiek mokiniu duomenu norite generuoti." << endl << "(1) - 1 000 / (2) - 10 000 / (3) - 100 000\n(4) - 1 000 000 / (bet koks kitas simbolis) - 10 000 000" << endl;
+	cin >> raide;
+	if (raide == '1')
+	{
+		duomenuGeneravimas(1);
+	}
+	else if (raide == '2')
+	{
+		duomenuGeneravimas(2);
+	}
+	else if (raide == '3')
+	{
+		duomenuGeneravimas(3);
+	}
+	else if (raide == '4')
+	{
+		duomenuGeneravimas(4);
+	}
+	else
+	{
+		duomenuGeneravimas(5);
+	}
 }
