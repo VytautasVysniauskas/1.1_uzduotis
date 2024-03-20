@@ -361,22 +361,10 @@ void pazangusIrBuki(vector<mokiniai>& M, vector<pazenge>& P, vector<buki>& B, in
 	auto pabaiga = steady_clock::now();
 	cin3 = duration_cast<duration<double>>(pabaiga - pradzia);
 
-	if (raide == 'V' || raide == 'v')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'P' || raide == 'p')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'A' || raide == 'a')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else
-	{
-		rikiavimas(M, dydis, raide);
-	}
+	if (raide == 'V' || raide == 'v' || raide == 'P' || raide == 'p' || raide == 'A' || raide == 'a')
+    {
+        rikiavimas(M, dydis, raide);
+    }
 
 	auto pradzia2 = steady_clock::now();
 	for (int i = 0; i < dydis; i++)
