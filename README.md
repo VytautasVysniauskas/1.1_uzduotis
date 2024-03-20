@@ -35,9 +35,12 @@
 | Testas 2     	|                          8,05084 	|                                        1,18114 	|                                  3,15434 	|                   47,45204 	|
 | Testas 3     	|                          8,11172 	|                                        1,18472 	|                                  3,05693 	|                   49,11679 	|
 | **Vidurkis** 	|                          8,14070 	|                                        1,20256 	|                                  3,13943 	|                   48,13658 	|
+
 <p align="center">
+  
 **Deque**
-<p/>
+ <p/>
+  
 1 000:
 |              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
 |--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
