@@ -4,14 +4,6 @@ using namespace std::chrono;
 
 int main()
 {
-	auto pradzia8 = steady_clock::now();
-	FILE* testFailas = fopen("testinis.txt", "w");
-	fclose(testFailas);
-	auto pabaiga8 = steady_clock::now();
-	auto fileLaikas = duration_cast<duration<double>>(pabaiga8 - pradzia8);
-	cout << "Failo atidarymo ir uzdarymo laikas: " << fixed << setprecision(5) << fileLaikas.count() << endl;
-	return 0;
-
 	auto cin1 = duration<double>::zero();
 	auto cin2 = duration<double>::zero();
 	auto cin3 = duration<double>::zero();
