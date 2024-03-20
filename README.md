@@ -1,10 +1,8 @@
 # 1_uzduotis
 
-**1 Tyrimas:**
-Failo kūrimas ir uždarymas užtrunka 0 sekundžių. Funkcijos yra iškart pabaigiamos tai vidurkis bus 0 sekundžių.
+**Sistemos parametrai:** Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz   2.50 GHz. RAM 16.0GB
 
-**2 Tyrimas:**
-Tyrimai buvo padaryti su 1 000, 10 000, 100 000 ir 1 000 000 duomenų. Buvo išviso padaryti 3 tyrimai su kiekvienu duomenų kiekiu.
+**Vectoriai**
 
 1 000:
 |              	| **Duomenu is failo nuskaitymas** 	| **Duomenu rusiavimas i atskirus konteinerius** 	| **Duomenu isvedimas i 2 askirus failus** 	| **Visos programos laikas** 	|
@@ -37,3 +35,70 @@ Tyrimai buvo padaryti su 1 000, 10 000, 100 000 ir 1 000 000 duomenų. Buvo išv
 | Testas 2     	|                          8,05084 	|                                        1,18114 	|                                  3,15434 	|                   47,45204 	|
 | Testas 3     	|                          8,11172 	|                                        1,18472 	|                                  3,05693 	|                   49,11679 	|
 | **Vidurkis** 	|                          8,14070 	|                                        1,20256 	|                                  3,13943 	|                   48,13658 	|
+
+**Deque**
+1 000:
+|              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
+|--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
+| Testas 1     	|                                                   0.00895 	|                         0.02394 	|                              0.00997 	|
+| Testas 2     	|                                                   0.00897 	|                         0.00499 	|                              0.00299 	|
+| Testas 3     	|                                                   0.00898 	|                         0.00598 	|                              0.00299 	|
+| **Vidurkis** 	|                                                   0.00897 	|                         0.01164 	|                              0.00532 	|
+
+10 000:
+|              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
+|--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
+| Testas 1     	|                                                   0.09673 	|                         0.07679 	|                              0.02493 	|
+| Testas 2     	|                                                   0.09076 	|                         0.06981 	|                              0.02394 	|
+| Testas 3     	|                                                   0.09076 	|                         0.13963 	|                              0.03690 	|
+| **Vidurkis** 	|                                                   0.09275 	|                         0.09541 	|                              0.02859 	|
+
+100 000:
+|              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
+|--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
+| Testas 1     	|                                                   1.11238 	|                         0.98736 	|                              0.27977 	|
+| Testas 2     	|                                                   1.31560 	|                         0.95867 	|                              0.27230 	|
+| Testas 3     	|                                                   1.46857 	|                         1.04547 	|                              0.26928 	|
+| **Vidurkis** 	|                                                   1.29885 	|                         0.99717 	|                              0.27378 	|
+
+1 000 000:
+|              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
+|--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
+| Testas 1     	|                                                  10.77466 	|                        12.37858 	|                              2.61010 	|
+| Testas 2     	|                                                   9.07082 	|                        11.51124 	|                              2.57560 	|
+| Testas 3     	|                                                   9.93175 	|                        11.47874 	|                              2.60594 	|
+| **Vidurkis** 	|                                                   9.92574 	|                        11.78952 	|                              2.59721 	|
+
+
+**Lists**
+1 000:
+|              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
+|--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
+| Testas 1     	|                                                   0.01296 	|                         1.14586 	|                              0.73854 	|
+| Testas 2     	|                                                   0.01197 	|                         1.12726 	|                              0.73404 	|
+| Testas 3     	|                                                   0.01396 	|                         0.92665 	|                              0.81035 	|
+| **Vidurkis** 	|                                                   0.01286 	|                         1.06659 	|                              0.75993 	|
+
+10 000:
+|              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
+|--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
+| Testas 1     	|                                                   0.13065 	|                         1.06181 	|                              0.80043 	|
+| Testas 2     	|                                                   0.13264 	|                         1.20746 	|                              0.71838 	|
+| Testas 3     	|                                                   0.13265 	|                         1.14781 	|                              0.74092 	|
+| **Vidurkis** 	|                                                   0.13198 	|                         1.13903 	|                              0.75324 	|
+
+100 000:
+|              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
+|--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
+| Testas 1     	|                                                   1.47833 	|                         0.95581 	|                              0.98047 	|
+| Testas 2     	|                                                   1.48148 	|                         0.97961 	|                              0.97971 	|
+| Testas 3     	|                                                   1.53137 	|                         0.95918 	|                              0.99839 	|
+| **Vidurkis** 	|                                                   1.49706 	|                         0.96487 	|                              0.98619 	|
+
+1 000 000:
+|              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
+|--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
+| Testas 1     	|                                                  14.37596 	|                         0.97886 	|                              3.61226 	|
+| Testas 2     	|                                                  13.79815 	|                         0.98787 	|                              3.29464 	|
+| Testas 3     	|                                                  12.61501 	|                         0.93605 	|                              2.87775 	|
+| **Vidurkis** 	|                                                  13.59637 	|                         0.96759 	|                              3.26155 	|
