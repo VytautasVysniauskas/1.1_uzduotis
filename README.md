@@ -1,10 +1,11 @@
 # 1_uzduotis
 
-1 Tyrimas:
+**1 Tyrimas:**
 Failo kūrimas ir uždarymas užtrunka 0 sekundžių. Funkcijos yra iškart pabaigiamos tai vidurkis bus 0 sekundžių.
 
-2 Tyrimas:
+**2 Tyrimas:**
 Tyrimai buvo padaryti su 1 000, 10 000, 100 000 ir 1 000 000 duomenų. Buvo išviso padaryti 3 tyrimai su kiekvienu duomenų kiekiu.
+
 1 000:
 |              	| **Duomenu is failo nuskaitymas** 	| **Duomenu rusiavimas i atskirus konteinerius** 	| **Duomenu isvedimas i 2 askirus failus** 	| **Visos programos laikas** 	|
 |--------------	|:--------------------------------:	|:----------------------------------------------:	|:----------------------------------------:	|:--------------------------:	|
