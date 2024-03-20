@@ -5,4 +5,5 @@
 #include <algorithm>
 #include <cmath>
 #include <random>
+#include <chrono>
 #include "ManoBib.h"
