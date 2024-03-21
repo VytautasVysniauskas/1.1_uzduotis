@@ -1,6 +1,17 @@
 # 1_uzduotis
 
-Kaip Naudoti:
+**MakeFile Naudojimas:**
+Patikrinkite ar visi failai yra toje pacioje direktorijoj pries pradedant naudojima.
+Per "Command Prompt" ar kitu pavadinimo command terminale įeikite į savo direktorija ir ten galite rasyti kelis dalykus:
+- make vektoriai.exe (atnaujina vektoriu kodo failus, reikia įvykdyti prieš pirmą naudojima)
+- make list.exe (atnaujina listu kodo failus, reikia įvykdyti prieš pirmą naudojima)
+- make deque.exe (atnaujina deque kodo failus, reikia įvykdyti prieš pirmą naudojima)
+- make runV (Paleidžia programa kuri veikia vektoriais)
+- make runL (Paleidžia programa kuri veikia listais)
+- make runD (Paleidžia programa kuri veikia deque)
+- make delete (Ištrina failus kurie automatiškai sukuriami naudojant programą)
+
+Kaip Naudoti programoj:
 Kur praso rasyti raide reikia rasyti TIK viena raide.
 Failo pavadinimus rasyti pilnus, kuriant tekstinius nepamirskite prideti .txt prie galo.
 Jusu bus klausiami dalykai tokia eile, R reiskia atssakyti raide, S - žodžiu:
