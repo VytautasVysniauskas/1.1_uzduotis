@@ -1,5 +1,29 @@
 # 1_uzduotis
 
+Kaip Naudoti:
+Kur praso rasyti raide reikia rasyti TIK viena raide.
+Failo pavadinimus rasyti pilnus, kuriant tekstinius nepamirskite prideti .txt prie galo.
+Jusu bus klausiami dalykai tokia eile, R reiskia atssakyti raide, S - žodžiu:
+- Ar norite generuoti duomenis? (R)
+- Irasykite failo pavadinima kuriame bus irasyti generuoti duomenys. (S) (Jeigu pasirinkote generuoti duomenis)
+- Pasirinkti kaip norite duomenis rusiuoti. (R) (Jeigu pasirinkote generuoti duomenis)
+- Ar norite duomenys rasyti ranka ar skaityti is failo? (R)
+- Is kurio failo norite skaityti duomenys? (S) (Jeigu pasirinkote skaityti is failo)
+- Kuria tvarka norite juos rusiuoti? (R)
+- Ar norite atsakyma spauzdinti i faila ar ekrana? (R)
+- Irasykite rezultatu failo pavadinima. (S) (Jeigu pasirinkote spauzdinti i faila)
+- Ar norite kad rezultatai rodyti vidurki ar mediana? (R)
+
+Rankinis duomenu rasymas yra irgi taip pat paprastai apibudinami. Jum bus pasakyta kada rasyti 0 jeigu norite baigti rasyti duomenis.
+Jums reikes rasyti
+- Vardas
+- Pavarde
+- Namu darbu rezultatus (Iki tol kol irasyte 0)
+- Egzamino rezultata
+
+
+**PRADINIS RELEASE**
+
 **Sistemos parametrai:** Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz   2.50 GHz. RAM 16.0GB
 
 **Vectoriai**
@@ -106,3 +130,14 @@
 | Testas 2     	|                                                  13.79815 	|                         0.98787 	|                              3.29464 	|
 | Testas 3     	|                                                  12.61501 	|                         0.93605 	|                              2.87775 	|
 | **Vidurkis** 	|                                                  13.59637 	|                         0.96759 	|                              3.26155 	|
+
+
+**GALUTINIS RELEASE**
+Visos 3 strategijos yra padarytos savo atitinkamuose failuose.
+Skirtingus rezultatus galite pamatyti nuotraukuose.
+Is rezultatu galime matyti, kad:
+- Deque tarp skirtingų būdų beveik nesiskiria.
+- Vektoriu skirstymas i konteinerius 3-ios strategijos yra truputi ilgesne
+- Listu skirtstymas i konteinerius 3-ios straretegijos yra akivaizdžiai ilsensis.
+
+Tačiau 3 strategija padaro daugiau veiksmų, mažiau galimybių lieka kodo netikėtam problemom nes pašalinimi nereikalingi elementai ir sutvarkomi struct masyvai.
