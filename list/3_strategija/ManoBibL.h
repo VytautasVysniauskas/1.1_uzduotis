@@ -13,12 +13,11 @@ struct mokiniai
 	double med;
 };
 
-void spauzdinimasFaile(list<mokiniai>&, int);
+void spauzdinimasFaile(list<mokiniai>&, list<mokiniai>&, int, duration<double>&);
 void spauzdinimasEkrane(list<mokiniai>&, int);
 void vidurys(list<mokiniai>&, int);
 int skaitymasRanka(list<mokiniai>&, int);
 int skaitymasFailo(list<mokiniai>&, int, duration<double>&);
 void rikiavimas(list<mokiniai>&, int, char);
-void pazangusIrBuki(list<mokiniai>&, list<mokiniai>&, int, duration<double>&, duration<double>&);
-int duomenuGeneravimas(list<mokiniai>&, int);
-int kiekGeneruoti(list<mokiniai>&, int);
+void duomenuGeneravimas(int);
+void kiekGeneruoti();
