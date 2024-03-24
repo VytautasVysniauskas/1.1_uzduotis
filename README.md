@@ -17,12 +17,10 @@ Failo pavadinimus rasyti pilnus, kuriant tekstinius nepamirskite prideti .txt pr
 Jusu bus klausiami dalykai tokia eile, R reiskia atssakyti raide, S - žodžiu:
 - Ar norite generuoti duomenis? (R)
 - Irasykite failo pavadinima kuriame bus irasyti generuoti duomenys. (S) (Jeigu pasirinkote generuoti duomenis)
-- Pasirinkti kaip norite duomenis rusiuoti. (R) (Jeigu pasirinkote generuoti duomenis)
 - Ar norite duomenys rasyti ranka ar skaityti is failo? (R)
 - Is kurio failo norite skaityti duomenys? (S) (Jeigu pasirinkote skaityti is failo)
 - Kuria tvarka norite juos rusiuoti? (R)
 - Ar norite atsakyma spauzdinti i faila ar ekrana? (R)
-- Irasykite rezultatu failo pavadinima. (S) (Jeigu pasirinkote spauzdinti i faila)
 - Ar norite kad rezultatai rodyti vidurki ar mediana? (R)
 
 Rankinis duomenu rasymas yra irgi taip pat paprastai apibudinami. Jum bus pasakyta kada rasyti 0 jeigu norite baigti rasyti duomenis.
