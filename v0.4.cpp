@@ -1,4 +1,4 @@
-#include "Bibliotekos.h"
+#include "Bibliotekos4.h"
 using namespace std;
 using namespace std::chrono;
 
@@ -6,16 +6,14 @@ int main()
 {
 	auto cin1 = duration<double>::zero();
 	auto cin2 = duration<double>::zero();
-	auto cin3 = duration<double>::zero();
 	auto cin4 = duration<double>::zero();
 	auto cin5 = duration<double>::zero();
-	auto cin10 = duration<double>::zero();
 	auto laikas1 = duration<double>::zero();
 	auto laikas2 = duration<double>::zero();
 	auto laikas3 = duration<double>::zero();
 	auto pradzia = steady_clock::now();
 	int dydis = 0;
-	vector<mokiniai> M(1000000);
+	vector<mokiniai> M(10000000);
 	vector<pazenge> P(0);
 	vector<buki> B(0);
 	char raide;
@@ -28,11 +26,7 @@ int main()
 
 	if (raide == 'T' || raide == 't')
 	{
-		dydis = kiekGeneruoti(M, dydis, cin1, cin2);
-		pazangusIrBuki(M, P, B, dydis, laikas2, laikas3, cin3);
-		cout << "Sukurti 2 atskiri failai:\npazenge.txt ir buki.txt" << endl << endl;
-		M.clear();
-		M.resize(1000000);
+		kiekGeneruoti(cin1, cin2);
 	}
 
 	cout << "Pasrinkite ar norite duomenys rasyti ranka, ar skaityti is failo. Rasykite atitinkama raide." << endl << "Rasyti ranka - (R) / Skaityti is failo - bet koks kitas zenklas" << endl;
@@ -61,22 +55,7 @@ int main()
 	cin >> raide;
 	auto pabaiga5 = steady_clock::now();
 	auto cin7 = duration_cast<duration<double>>(pabaiga5 - pradzia5);
-	if (raide == 'V' || raide == 'v')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'P' || raide == 'p')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'A' || raide == 'a')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else
-	{
-		rikiavimas(M, dydis, raide);
-	}
+	rikiavimas(M, dydis, raide);
 
 	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (bet koks kitas zenklas)" << endl;
 	auto pradzia6 = steady_clock::now();
@@ -90,11 +69,12 @@ int main()
 	}
 	else
 	{
-		spauzdinimasFaile(M, dydis, cin5, cin10);
+		spauzdinimasFaile(M, P, B, dydis, cin5, laikas2, laikas3);
+		cout << "Sukurti 2 atskiri failai:\npazenge.txt ir buki.txt" << endl << endl;
 	}
 
 	auto pabaiga = steady_clock::now();
-	auto laikas = duration_cast<duration<double>>(pabaiga - pradzia - cin1 - cin2 - cin3 - cin4 - cin5 - cin6 - cin7 - cin8 - cin9 - cin10);
+	auto laikas = duration_cast<duration<double>>(pabaiga - pradzia - cin1 - cin2 - cin4 - cin5 - cin6 - cin7 - cin8 - cin9);
 
 	cout << "\nDuomenu is failo nuskaitymo laikas: " << fixed << setprecision(5) << laikas1.count() << endl;
 	cout << "Duomenu rusiavimas i atskirus konteinerius: " << fixed << setprecision(5) << laikas2.count() << endl;
