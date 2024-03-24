@@ -3,51 +3,78 @@
 using namespace std;
 using namespace std::chrono;
 
-void spauzdinimasFaile(list<mokiniai>& M, int dydis)
+void spauzdinimasFaile(list<mokiniai>& M, list<mokiniai>& B, int dydis, duration<double>& laikas3)
 {
-	string rFailasPav;
-	cout << "Iveskite failo pavadinima, kuriame bus isvedami rezultatai." << endl;
-	cin >> rFailasPav;
-
-	FILE* rFailas = fopen(rFailasPav.c_str(), "w");
-
 	char raide;
 	cout << "Ar norite naudoti vidurki ar mediana?" << endl << "Vidurki (V) / Mediana (bet koks kitas zenklas)" << endl;
 	cin >> raide;
 
+	auto pradzia3 = steady_clock::now();
 	if (raide == 'V' || raide == 'v')
 	{
-		fprintf(rFailas, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Vid.)");
-		fprintf(rFailas, "-----------------------------------------------------------------\n");
-
-		for (auto it = M.begin(); it != M.end() && dydis > 0; ++it)
-		{
-			auto& mok = *it;
-			if (!mok.ndRez.empty())
+		std::copy_if(M.begin(), M.end(), std::back_inserter(B), [&](const mokiniai& m)
 			{
-				fprintf(rFailas, "%-15s%-15s%-20.2f\n", mok.surname.c_str(), mok.name.c_str(), mok.average);
-				dydis--; 
-			}
+				return m.average < 5.0 && m.average > 0.0;
+			});
+
+		M.remove_if([](const mokiniai& m)
+			{
+				return m.average < 5.0;
+			});
+	}
+	else
+	{
+		std::copy_if(M.begin(), M.end(), std::back_inserter(B), [&](const mokiniai& m)
+			{
+				return m.med < 5.0 && m.med > 0.0;
+			});
+
+		M.remove_if([](const mokiniai& m)
+			{
+				return m.med < 5.0;
+			});
+	}
+	auto pabaiga3 = steady_clock::now();
+	laikas3 = duration_cast<duration<double>>(pabaiga3 - pradzia3);
+
+	FILE* pFile = fopen("pazenge.txt", "w");
+	FILE* bFile = fopen("buki.txt", "w");
+
+	if (raide == 'V' || raide == 'v')
+	{
+		fprintf(pFile, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Vid.)");
+		fprintf(pFile, "-----------------------------------------------------------------\n");
+		fprintf(bFile, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Vid.)");
+		fprintf(bFile, "-----------------------------------------------------------------\n");
+
+		for (const auto& m : M)
+		{
+			fprintf(pFile, "%-15s%-15s%-20.2f\n", m.surname.c_str(), m.name.c_str(), m.average);
+		}
+		for (const auto& b : B)
+		{
+			fprintf(bFile, "%-15s%-15s%-20.2f\n", b.surname.c_str(), b.name.c_str(), b.average);
 		}
 	}
 	else
 	{
-		fprintf(rFailas, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Med.)");
-		fprintf(rFailas, "-----------------------------------------------------------------\n");
+		fprintf(pFile, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Med.)");
+		fprintf(pFile, "-----------------------------------------------------------------\n");
+		fprintf(bFile, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Med.)");
+		fprintf(bFile, "-----------------------------------------------------------------\n");
 
-		for (auto it = M.begin(); it != M.end() && dydis > 0; ++it)
+		for (const auto& m : M)
 		{
-			auto& mok = *it;
-			if (!mok.ndRez.empty()) 
-			{
-				fprintf(rFailas, "%-15s%-15s%-20.2f\n", mok.surname.c_str(), mok.name.c_str(), mok.med);
-				dydis--;
-			}
+			fprintf(pFile, "%-15s%-15s%-20.2f\n", m.surname.c_str(), m.name.c_str(), m.med);
+		}
+		for (const auto& b : B)
+		{
+			fprintf(bFile, "%-15s%-15s%-20.2f\n", b.surname.c_str(), b.name.c_str(), b.med);
 		}
 	}
 
-	cout << "Rezultatai isvesti faile: " << rFailasPav << endl;
-	fclose(rFailas);
+	fclose(pFile);
+	fclose(bFile);
 }
 
 void spauzdinimasEkrane(list<mokiniai>& M, int dydis)
@@ -433,7 +460,7 @@ void pazangusIrBuki (list<mokiniai>& M, list<mokiniai>& B, int dydis, duration<d
 	fclose(bFile);
 }
 
-int duomenuGeneravimas(list<mokiniai>& M, int kiek)
+void duomenuGeneravimas(int kiek)
 {
 	int DK = 100 * pow(10, kiek);
 	if (DK % 10 != 0)
@@ -459,56 +486,52 @@ int duomenuGeneravimas(list<mokiniai>& M, int kiek)
 	}
 	fprintf(myFile, "%s\n", "Egz.");
 
-	int x = 1;
-	for (auto it = M.begin(); x <= DK; ++x, ++it)
+	for (int x = 1; x <= DK; x++)
 	{
-		mt19937 gen(rd());
-		int sk = 0;
+		string name = "Vardas" + to_string(x);
+		string surname = "Pavarde" + to_string(x);
+		fprintf(myFile, "%-26s%-26s", name.c_str(), surname.c_str());
 
-		it->name = "Vardas" + to_string(x);
-		it->surname = "Pavarde" + to_string(x);
-		fprintf(myFile, "%-26s%-26s", it->name.c_str(), it->surname.c_str());
 		for (int j = 1; j <= ndSkaicius; j++)
 		{
 			uniform_int_distribution<int> pazGen(1, 10);
-			it->ndRez.push_back(pazGen(gen));
-			fprintf(myFile, "%-10d",it->ndRez.back());
-
-			sk = sk +it->ndRez.back();
+			int paz = pazGen(gen);
+			fprintf(myFile, "%-10d", paz);
 		}
-		uniform_int_distribution<int> egzGen(1, 10);
-		it->egzRez = egzGen(gen);
-		fprintf(myFile, "%d\n", it->egzRez);
-		int testT = it->egzRez;
 
-		it->average = (0.4 * sk / ndSkaicius) + (0.6 * testT);
+		uniform_int_distribution<int> egzGen(1, 10);
+		int egz = egzGen(gen);
+
+		fprintf(myFile, "%d\n", egz);
 	}
 
 	fclose(myFile);
-	return DK;
 }
 
-int kiekGeneruoti(list<mokiniai>& M, int dydis)
+void kiekGeneruoti()
 {
 	char raide;
 
-	cout << "Pasirinkite kiek mokiniu duomenu norite generuoti." << endl << "(1) - 1 000 / (2) - 10 000 / (3) - 100 000 / (bet koks kitas simbolis) - 1 000 000" << endl;
+	cout << "Pasirinkite kiek mokiniu duomenu norite generuoti." << endl << "(1) - 1 000 / (2) - 10 000 / (3) - 100 000 / (4) - 1 000 000 / (bet koks kitas simbolis) - 10 000 000" << endl;
 	cin >> raide;
 	if (raide == '1')
 	{
-		dydis = duomenuGeneravimas(M, 1);
+		duomenuGeneravimas(1);
 	}
 	else if (raide == '2')
 	{
-		dydis = duomenuGeneravimas(M, 2);
+		duomenuGeneravimas(2);
 	}
 	else if (raide == '3')
 	{
-		dydis = duomenuGeneravimas(M, 3);
+		duomenuGeneravimas(3);
+	}
+	else if (raide == '4')
+	{
+		duomenuGeneravimas(4);
 	}
 	else
 	{
-		dydis = duomenuGeneravimas(M, 4);
+		duomenuGeneravimas(5);
 	}
-	return dydis;
 }
