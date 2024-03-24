@@ -1,4 +1,4 @@
-# 1_uzduotis
+# 1_uzduotis 
 
 **1 Tyrimas:**
 Failo kūrimas ir uždarymas užtrunka 0 sekundžių. Funkcijos yra iškart pabaigiamos tai vidurkis bus 0 sekundžių.
