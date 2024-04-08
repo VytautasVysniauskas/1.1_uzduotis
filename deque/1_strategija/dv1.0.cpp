@@ -4,27 +4,40 @@ using namespace std::chrono;
 
 int main()
 {
+	auto cin1 = duration<double>::zero();
+	auto cin2 = duration<double>::zero();
+	auto cin3 = duration<double>::zero();
+	auto cin4 = duration<double>::zero();
+	auto cin5 = duration<double>::zero();
+	auto cin10 = duration<double>::zero();
 	auto laikas1 = duration<double>::zero();
 	auto laikas2 = duration<double>::zero();
 	auto laikas3 = duration<double>::zero();
 	auto pradzia = steady_clock::now();
 	int dydis = 0;
 	deque<mokiniai> M(1000000);
+	deque<mokiniai> P(0);
 	deque<mokiniai> B(0);
 	char raide;
 
 	cout << "Ar norite generuoti duomenys?" << endl << "(T) - taip / (bet koks kitas simbolis) - ne" << endl;
+	auto pradzia7 = steady_clock::now();
 	cin >> raide;
+	auto pabaiga7 = steady_clock::now();
+	auto cin9 = duration_cast<duration<double>>(pabaiga7 - pradzia7);
 
 	if (raide == 'T' || raide == 't')
 	{
-		dydis = kiekGeneruoti(M, dydis);
+		dydis = kiekGeneruoti(M, dydis, cin1, cin2);
 		M.clear();
 		M.resize(1000000);
 	}
 
 	cout << "Pasrinkite ar norite duomenys rasyti ranka, ar skaityti is failo. Rasykite atitinkama raide." << endl << "Rasyti ranka - (R) / Skaityti is failo - bet koks kitas zenklas" << endl;
+	auto pradzia4 = steady_clock::now();
 	cin >> raide;
+	auto pabaiga4 = steady_clock::now();
+	auto cin6 = duration_cast<duration<double>>(pabaiga4 - pradzia4);
 
 	if (raide == 'R' || raide == 'r')
 	{
@@ -32,7 +45,7 @@ int main()
 	}
 	else
 	{
-		dydis = skaitymasFailo(M, dydis, laikas1);
+		dydis = skaitymasFailo(M, dydis, laikas1, cin4);
 		if (dydis == 0)
 		{
 			return 0;
@@ -42,25 +55,34 @@ int main()
 	vidurys(M, dydis);
 
 	cout << "Pasirinkite pagal ka norite surusiuoti rezultatus (Mazejimo tvarka arba abaceles didejimo)" << endl << "Vardus (V) / Pavardes (P) / Gal. Vidurki (A) / Gal. Mediana (bet koks kitas zenklas)" << endl;
+	auto pradzia5 = steady_clock::now();
 	cin >> raide;
+	auto pabaiga5 = steady_clock::now();
+	auto cin7 = duration_cast<duration<double>>(pabaiga5 - pradzia5);
 
 	rikiavimas(M, dydis, raide);
 
 	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (bet koks kitas zenklas)" << endl;
+	auto pradzia6 = steady_clock::now();
 	cin >> raide;
+	auto pabaiga6 = steady_clock::now();
+	auto cin8 = duration_cast<duration<double>>(pabaiga6 - pradzia6);
 
 	if (raide == 'E' || raide == 'e')
 	{
-		spauzdinimasEkrane(M, dydis);
+		spauzdinimasEkrane(M, dydis, cin5);
 	}
 	else
 	{
-		spauzdinimasFaile(M, B, dydis);
+		spauzdinimasFaile(M, P, B, dydis, cin5, cin10);
 	}
 
+	auto pabaiga = steady_clock::now();
+	auto laikas = duration_cast<duration<double>>(pabaiga - pradzia - cin1 - cin2 - cin3 - cin4 - cin5 - cin6 - cin7 - cin8 - cin9 - cin10);
 
-	cout << "\nDuomenu is failo nuskaitymas ir skyrimas i konteineri: " << fixed << setprecision(5) << laikas1.count() << endl;
-	cout << "Studentu rusiavimo funkcija: " << fixed << setprecision(5) << laikas2.count() << endl;
-	cout << "Studentu skirstymas i dvi grupes: " << fixed << setprecision(5) << laikas3.count() << endl;
+	cout << "\nDuomenu is failo nuskaitymo laikas: " << fixed << setprecision(5) << laikas1.count() << endl;
+	cout << "Duomenu rusiavimas i atskirus konteinerius: " << fixed << setprecision(5) << laikas2.count() << endl;
+	cout << "Duomenu isvedimas i 2 atskirus failus: " << fixed << setprecision(5) << laikas3.count() << endl;
+	cout << "Visos programos veikimo laikas: " << fixed << setprecision(5) << laikas.count() << endl;
 	return 0;
 }
