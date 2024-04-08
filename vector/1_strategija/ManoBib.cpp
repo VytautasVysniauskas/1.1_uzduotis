@@ -351,7 +351,7 @@ void rikiavimas (vector<mokiniai>& M, int dydis, char pasirinkimas)
 	}
 }
 
-void pazangusIrBuki(vector<mokiniai>& M, vector<pazenge>& P, vector<buki>& B, int dydis, duration<double>& laikas2, duration<double>& laikas3, duration<double>& cin3)
+void pazangusIrBuki(vector<mokiniai>& M, vector<mokiniai>& P, vector<mokiniai>& B, int dydis, duration<double>& laikas2, duration<double>& laikas3, duration<double>& cin3)
 {
 	int pDydis = 0, bDydis = 0;
 	char raide;
@@ -360,23 +360,7 @@ void pazangusIrBuki(vector<mokiniai>& M, vector<pazenge>& P, vector<buki>& B, in
 	cin >> raide;
 	auto pabaiga = steady_clock::now();
 	cin3 = duration_cast<duration<double>>(pabaiga - pradzia);
-
-	if (raide == 'V' || raide == 'v')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'P' || raide == 'p')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'A' || raide == 'a')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else
-	{
-		rikiavimas(M, dydis, raide);
-	}
+	rikiavimas(M, dydis, raide);
 
 	auto pradzia2 = steady_clock::now();
 	for (int i = 0; i < dydis; i++)
