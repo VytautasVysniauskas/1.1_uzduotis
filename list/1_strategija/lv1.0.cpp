@@ -16,8 +16,8 @@ int main()
 	auto pradzia = steady_clock::now();
 	int dydis = 0;
 	list<mokiniai> M(1000000);
-	list<pazenge> P(0);
-	list<buki> B(0);
+	list<mokiniai> P(0);
+	list<mokiniai> B(0);
 	char raide;
 
 	cout << "Ar norite generuoti duomenys?" << endl << "(T) - taip / (bet koks kitas simbolis) - ne" << endl;
@@ -29,8 +29,6 @@ int main()
 	if (raide == 'T' || raide == 't')
 	{
 		dydis = kiekGeneruoti(M, dydis, cin1, cin2);
-		pazangusIrBuki(M, P, B, dydis, laikas2, laikas3, cin3);
-		cout << "Sukurti 2 atskiri failai:\npazenge.txt ir buki.txt" << endl << endl;
 		M.clear();
 		M.resize(1000000);
 	}
@@ -61,22 +59,8 @@ int main()
 	cin >> raide;
 	auto pabaiga5 = steady_clock::now();
 	auto cin7 = duration_cast<duration<double>>(pabaiga5 - pradzia5);
-	if (raide == 'V' || raide == 'v')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'P' || raide == 'p')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'A' || raide == 'a')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else
-	{
-		rikiavimas(M, dydis, raide);
-	}
+
+	rikiavimas(M, dydis, raide);
 
 	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (bet koks kitas zenklas)" << endl;
 	auto pradzia6 = steady_clock::now();
@@ -90,7 +74,7 @@ int main()
 	}
 	else
 	{
-		spauzdinimasFaile(M, dydis, cin5, cin10);
+		spauzdinimasFaile(M, P, B, dydis, cin5, cin10);
 	}
 
 	auto pabaiga = steady_clock::now();
