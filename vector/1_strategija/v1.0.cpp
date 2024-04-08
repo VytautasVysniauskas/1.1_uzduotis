@@ -29,7 +29,7 @@ int main()
 	if (raide == 'T' || raide == 't')
 	{
 		dydis = kiekGeneruoti(M, dydis, cin1, cin2);
-		pazangusIrBuki(M, P, B, dydis, laikas2, laikas3, cin3);
+		pazangusIrBuki(M, dydis, laikas2, laikas3, cin3);
 		cout << "Sukurti 2 atskiri failai:\npazenge.txt ir buki.txt" << endl << endl;
 		M.clear();
 		M.resize(1000000);
