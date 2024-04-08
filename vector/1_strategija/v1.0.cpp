@@ -16,8 +16,8 @@ int main()
 	auto pradzia = steady_clock::now();
 	int dydis = 0;
 	vector<mokiniai> M(1000000);
-	vector<pazenge> P(0);
-	vector<buki> B(0);
+	vector<mokiniai> P(0);
+	vector<mokiniai> B(0);
 	char raide;
 
 	cout << "Ar norite generuoti duomenys?" << endl << "(T) - taip / (bet koks kitas simbolis) - ne" << endl;
