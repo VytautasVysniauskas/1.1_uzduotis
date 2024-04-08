@@ -9,12 +9,11 @@ int main()
 	auto cin3 = duration<double>::zero();
 	auto cin4 = duration<double>::zero();
 	auto cin5 = duration<double>::zero();
-	auto cin10 = duration<double>::zero();
 	auto laikas1 = duration<double>::zero();
 	auto laikas2 = duration<double>::zero();
 	auto laikas3 = duration<double>::zero();
 	auto pradzia = steady_clock::now();
-	int dydis = 0;
+	int dydis = 0, pDydis = 0, bDydis = 0;
 	vector<mokiniai> M(1000000);
 	vector<mokiniai> P(0);
 	vector<mokiniai> B(0);
@@ -29,10 +28,6 @@ int main()
 	if (raide == 'T' || raide == 't')
 	{
 		dydis = kiekGeneruoti(M, dydis, cin1, cin2);
-		pazangusIrBuki(M, dydis, laikas2, laikas3, cin3);
-		cout << "Sukurti 2 atskiri failai:\npazenge.txt ir buki.txt" << endl << endl;
-		M.clear();
-		M.resize(1000000);
 	}
 
 	cout << "Pasrinkite ar norite duomenys rasyti ranka, ar skaityti is failo. Rasykite atitinkama raide." << endl << "Rasyti ranka - (R) / Skaityti is failo - bet koks kitas zenklas" << endl;
@@ -61,22 +56,8 @@ int main()
 	cin >> raide;
 	auto pabaiga5 = steady_clock::now();
 	auto cin7 = duration_cast<duration<double>>(pabaiga5 - pradzia5);
-	if (raide == 'V' || raide == 'v')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'P' || raide == 'p')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else if (raide == 'A' || raide == 'a')
-	{
-		rikiavimas(M, dydis, raide);
-	}
-	else
-	{
-		rikiavimas(M, dydis, raide);
-	}
+
+	rikiavimas(M, dydis, raide);
 
 	cout << "Ar norite rezultata spauzdinti faile ar ekrane?" << endl << "Faile (F) / Ekrane (bet koks kitas zenklas)" << endl;
 	auto pradzia6 = steady_clock::now();
@@ -90,14 +71,13 @@ int main()
 	}
 	else
 	{
-		spauzdinimasFaile(M, dydis, cin5, cin10);
+		spauzdinimasFaile(M, P, B, dydis, pDydis, bDydis, cin5);
 	}
 
 	auto pabaiga = steady_clock::now();
-	auto laikas = duration_cast<duration<double>>(pabaiga - pradzia - cin1 - cin2 - cin3 - cin4 - cin5 - cin6 - cin7 - cin8 - cin9 - cin10);
+	auto laikas = duration_cast<duration<double>>(pabaiga - pradzia - cin1 - cin2 - cin3 - cin4 - cin5 - cin6 - cin7 - cin8 - cin9);
 
 	cout << "\nDuomenu is failo nuskaitymo laikas: " << fixed << setprecision(5) << laikas1.count() << endl;
-	cout << "Duomenu rusiavimas i atskirus konteinerius: " << fixed << setprecision(5) << laikas2.count() << endl;
 	cout << "Duomenu isvedimas i 2 atskirus failus: " << fixed << setprecision(5) << laikas3.count() << endl;
 	cout << "Visos programos veikimo laikas: " << fixed << setprecision(5) << laikas.count() << endl;
 	return 0;
