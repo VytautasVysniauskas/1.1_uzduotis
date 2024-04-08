@@ -3,18 +3,13 @@
 using namespace std;
 using namespace std::chrono;
 
-void spauzdinimasFaile(deque<mokiniai>& M, deque<mokiniai>& P, deque<mokiniai>& B, int dydis, duration<double>& cin5, duration<double>& cin10)
+void spauzdinimasFaile(deque<mokiniai>& M, deque<mokiniai>& B, int dydis)
 {
-	int pDydis = 0, bDydis = 0;
+	int bDydis = 0;
 
 	for (int i = 0; i < dydis; i++)
 	{
-		if (M[i].average >= 5.0)
-		{
-			P.push_front(M[i]);
-			pDydis++;
-		}
-		else if (M[i].average < 5.0)
+		if (M[i].average < 5.0)
 		{
 			B.push_front(M[i]);
 			bDydis++;
@@ -26,10 +21,7 @@ void spauzdinimasFaile(deque<mokiniai>& M, deque<mokiniai>& P, deque<mokiniai>& 
 
 	char raide;
 	cout << "Ar norite naudoti vidurki ar mediana?" << endl << "Vidurki (V) / Mediana (bet koks kitas zenklas)" << endl;
-	auto pradzia = steady_clock::now();
 	cin >> raide;
-	auto pabaiga = steady_clock::now();
-	cin5 = duration_cast<duration<double>>(pabaiga - pradzia);
 
 	if (raide == 'V' || raide == 'v')
 	{
@@ -37,10 +29,13 @@ void spauzdinimasFaile(deque<mokiniai>& M, deque<mokiniai>& P, deque<mokiniai>& 
 		fprintf(pFile, "-----------------------------------------------------------------\n");
 		fprintf(bFile, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Vid.)");
 		fprintf(bFile, "-----------------------------------------------------------------\n");
-		
-		for (int i = pDydis - 1; i > 0; i--)
+
+		for (int i = 0; i < dydis; i++)
 		{
-			fprintf(pFile, "%-15s%-15s%-20.2f\n", P[i].surname.c_str(), P[i].name.c_str(), P[i].average);
+			if (M[i].average >= 5.0)
+			{
+				fprintf(pFile, "%-15s%-15s%-20.2f\n", M[i].surname.c_str(), M[i].name.c_str(), M[i].average);
+			}
 		}
 		for (int i = bDydis - 1; i > 0; i--)
 		{
@@ -54,9 +49,12 @@ void spauzdinimasFaile(deque<mokiniai>& M, deque<mokiniai>& P, deque<mokiniai>& 
 		fprintf(bFile, "%-15s%-15s%-20s\n", "Pavarde", "Vardas", "Galutinis (Med.)");
 		fprintf(bFile, "-----------------------------------------------------------------\n");
 
-		for (int i = pDydis - 1; i > 0; i--)
+		for (int i = 0; i < dydis; i++)
 		{
-			fprintf(pFile, "%-15s%-15s%-20.2f\n", P[i].surname.c_str(), P[i].name.c_str(), P[i].med);
+			if (M[i].average >= 5.0)
+			{
+				fprintf(pFile, "%-15s%-15s%-20.2f\n", M[i].surname.c_str(), M[i].name.c_str(), M[i].med);
+			}
 		}
 		for (int i = bDydis - 1; i > 0; i--)
 		{
@@ -69,14 +67,11 @@ void spauzdinimasFaile(deque<mokiniai>& M, deque<mokiniai>& P, deque<mokiniai>& 
 	fclose(bFile);
 }
 
-void spauzdinimasEkrane(deque<mokiniai>& M, int dydis, duration<double>& cin5)
+void spauzdinimasEkrane(deque<mokiniai>& M, int dydis)
 {
 	char raide;
 	cout << "Ar norite naudoti vidurki ar mediana?" << endl << "Vidurki (V) / Mediana (bet koks kitas zenklas)";
-	auto pradzia = steady_clock::now();
 	cin >> raide;
-	auto pabaiga = steady_clock::now();
-	cin5 = duration_cast<duration<double>>(pabaiga - pradzia);
 
 	if (raide == 'V' || raide == 'v')
 	{
@@ -269,7 +264,7 @@ int skaitymasRanka(deque<mokiniai>& M, int dydis)
 	return dydis;
 }
 
-int skaitymasFailo(deque<mokiniai>& M, int dydis, duration<double>& laikas1, duration<double>& cin4)
+int skaitymasFailo(deque<mokiniai>& M, int dydis, duration<double>& laikas1)
 {
 	string fileV;
 	char vardas[100], pav[100], trash[100];
@@ -277,10 +272,7 @@ int skaitymasFailo(deque<mokiniai>& M, int dydis, duration<double>& laikas1, dur
 	int i = 0;
 
 	cout << "Iveskite failo pavadinima, is kurio bus nuskaityti duomenys:" << endl;
-	auto pradzia = steady_clock::now();
 	cin >> fileV;
-	auto pabaiga = steady_clock::now();
-	cin4 = duration_cast<duration<double>>(pabaiga - pradzia);
 
 	FILE* myFile = fopen(fileV.c_str(), "r");
 	if (!myFile)
@@ -374,7 +366,7 @@ void rikiavimas(deque<mokiniai>& M, int dydis, char pasirinkimas)
 	}
 }
 
-int duomenuGeneravimas(deque<mokiniai>& M, int kiek, duration<double>& cin2)
+int duomenuGeneravimas(deque<mokiniai>& M, int kiek)
 {
 	int DK = 100 * pow(10, kiek);
 	if (DK % 10 != 0)
@@ -389,10 +381,7 @@ int duomenuGeneravimas(deque<mokiniai>& M, int kiek, duration<double>& cin2)
 
 	string fileV;
 	cout << "Iveskite failo pavadinima, kuriame norite sugeneruoti savo duomenis." << endl;
-	auto pradzia = steady_clock::now();
 	cin >> fileV;
-	auto pabaiga = steady_clock::now();
-	cin2 = duration_cast<duration<double>>(pabaiga - pradzia);
 
 	FILE* myFile = fopen(fileV.c_str(), "w");
 
@@ -429,30 +418,26 @@ int duomenuGeneravimas(deque<mokiniai>& M, int kiek, duration<double>& cin2)
 	return DK;
 }
 
-int kiekGeneruoti(deque<mokiniai>& M, int dydis, duration<double>& cin1, duration<double>& cin2)
+int kiekGeneruoti(deque<mokiniai>& M, int dydis)
 {
 	char raide;
-
 	cout << "Pasirinkite kiek mokiniu duomenu norite generuoti." << endl << "(1) - 1 000 / (2) - 10 000 / (3) - 100 000 / (bet koks kitas simbolis) - 1 000 000" << endl;
-	auto pradzia = steady_clock::now();
 	cin >> raide;
-	auto pabaiga = steady_clock::now();
-	cin1 = duration_cast<duration<double>>(pabaiga - pradzia);
 	if (raide == '1')
 	{
-		dydis = duomenuGeneravimas(M, 1, cin2);
+		dydis = duomenuGeneravimas(M, 1);
 	}
 	else if (raide == '2')
 	{
-		dydis = duomenuGeneravimas(M, 2, cin2);
+		dydis = duomenuGeneravimas(M, 2);
 	}
 	else if (raide == '3')
 	{
-		dydis = duomenuGeneravimas(M, 3, cin2);
+		dydis = duomenuGeneravimas(M, 3);
 	}
 	else
 	{
-		dydis = duomenuGeneravimas(M, 4, cin2);
+		dydis = duomenuGeneravimas(M, 4);
 	}
 	return dydis;
 }
