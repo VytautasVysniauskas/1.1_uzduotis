@@ -6,10 +6,10 @@ Testavimui tarp classiu ir struct buvo daromi su vectoriais. Stai 100 000 ir 1 0
 Struct vector
 |              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
 |--------------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
-| Testas 1     	|                                                   0,82614 	|                         0,11318 	|                              0,32348 	|
-| Testas 2     	|                                                   0,84393 	|                         0,11940 	|                              0,32837 	|
-| Testas 3     	|                                                   0,87882 	|                         0,12216 	|                              0,31279 	|
-| **Vidurkis** 	|                                                   0,84963 	|                         0,11825 	|                              0,32155 	|
+| Testas 1     	|                                                   0,82614 	|                         0,32348 	|                              0,11318 	|
+| Testas 2     	|                                                   0,84393 	|                         0,32837 	|                              0,11940 	|
+| Testas 3     	|                                                   0,87882 	|                         0,31279 	|                              0,12216 	|
+| **Vidurkis** 	|                                                   0,84963 	|                         0,32155 	|                              0,11825 	|
 
 Class vector
 |              	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
