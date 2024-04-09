@@ -1,0 +1,9 @@
+#pragma once
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <random>
+#include <chrono>
+#include "ManoBib4.h"
