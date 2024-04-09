@@ -41,13 +41,13 @@ Kaip matome struct ir classes vektoriai yra panasaus greicio su 100 000 ir 1 000
 Toliau buvo daromi testai su O1, O2 ir O3 flagais compiliojant koda. Testai buvo daromi vel su vectoriais tarp struct ir class naudojant 100 000 duomenu.
 
 **O1**
-Struct vector
+Struct vector dydis - 179 283 bytes
 |          	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
 |----------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
 | Testas 1 	|                                                   0.70814 	|                         0.10076 	|                              0.02496 	|
 | Testas 2 	|                                                   0.70714 	|                         0.10054 	|                              0.02494 	|
 | Testas 3 	|                                                   0.70913 	|                         0.10176 	|                              0.02394 	|
-Class vector
+Class vector dydis - 162 152 bytes
 |          	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
 |----------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
 | Testas 1 	|                                                   0.69913 	|                         0.16757 	|                              0.02893 	|
@@ -55,13 +55,13 @@ Class vector
 | Testas 3 	|                                                   0.69714 	|                         0.16556 	|                              0.02990 	|
 
 **O2**
-Struct vector
+Struct vector dydis - 186 203 bytes
 |          	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
 |----------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
 | Testas 1 	|                                                   0.71113 	|                         0.10076 	|                              0.02576 	|
 | Testas 2 	|                                                   0.70811 	|                         0.09974 	|                              0.02494 	|
 | Testas 3 	|                                                   0.76598 	|                         0.10771 	|                              0.02697 	|
-Class vector
+Class vector dydis - 160 732 bytes
 |          	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
 |----------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
 | Testas 1 	|                                                   0.69916 	|                         0.16559 	|                              0.03491 	|
@@ -69,13 +69,13 @@ Class vector
 | Testas 3 	|                                                   0.69913 	|                         0.16260 	|                              0.03292 	|
 
 **O3**
-Struct vector
+Struct vector dydis - 184 487 bytes
 |          	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
 |----------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
 | Testas 1 	|                                                   0.70611 	|                         0.10173 	|                              0.02394 	|
 | Testas 2 	|                                                   0.70811 	|                         0.10472 	|                              0.02793 	|
 | Testas 3 	|                                                   0.74105 	|                         0.10076 	|                              0.02494 	|
-Class vector
+Class vector dydis - 172 782 bytes
 |          	| **Duomenu is failo nuskaitymas ir skyrimas i konteineri** 	| **Studentu rusiavimo funkcija** 	| **Studentu skirstymas i dvi grupes** 	|
 |----------	|:---------------------------------------------------------:	|:-------------------------------:	|:------------------------------------:	|
 | Testas 1 	|                                                   0.76695 	|                         0.16356 	|                              0.02793 	|
@@ -83,3 +83,4 @@ Class vector
 | Testas 3 	|                                                   0.70212 	|                         0.16060 	|                              0.02895 	|
 
 Galime pastebeti kad visu 3 testu laikai truputi greiteja su kiekvienu skirtingu flagu, taciau struct zymiau trumpiau uztrunka su rusiavumo funkcija.
+Taip pat, class vector exe failu dydis yra aiskiai mazesnis uz struct vector exe failu dydzius.
