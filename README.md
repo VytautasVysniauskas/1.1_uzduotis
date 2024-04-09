@@ -36,4 +36,4 @@ Class vector
 | Testas 3     	|                                                   8.06156 	|                         6.13562 	|                              0.41689 	|
 | **Vidurkis** 	|                                                   8.11135 	|                         6.12864 	|                              0.41163 	|
 
-Kaip matome struct ir classes vektoriai yra panasuas greicio su 100 000 duomenu taciau classes vectoriai tampa zymiai greitesni su 1 000 000 duomenu.
+Kaip matome struct ir classes vektoriai yra panasaus greicio su 100 000 duomenu taciau classes vectoriai tampa zymiai greitesni su 1 000 000 duomenu.
