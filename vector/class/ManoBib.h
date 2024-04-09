@@ -16,6 +16,26 @@ public:
     mokiniai() :
         name(""), surname(""), egzRez(0), average(0), med(0) {}
 
+    mokiniai(const string& n) :
+        name(n), surname(""), egzRez(0), average(0), med(0) {}
+
+    mokiniai(const string& n, const string& s) :
+        name(n), surname(s), egzRez(0), average(0), med(0) {}
+
+    mokiniai(const string& n, const string& s, int egz) :
+        name(n), surname(s), egzRez(egz), average(0), med(0) {}
+
+    mokiniai(const string& n, const string& s, int egz, double av) :
+        name(n), surname(s), egzRez(egz), average(av), med(0) {}
+
+    mokiniai(const string& n, const string& s, int egz, double av, double med) :
+        name(n), surname(s), egzRez(egz), average(av), med(med) {}
+
+    ~mokiniai() 
+    {
+        ndRez.clear();
+    }
+
     const string& getName() const { return name; }
     const string& getSurname() const { return surname; }
     const vector<int>& getNdRez() const { return ndRez; }
