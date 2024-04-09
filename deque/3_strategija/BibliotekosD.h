@@ -1,0 +1,12 @@
+#pragma once
+#include <iostream>
+#include <iomanip>
+#include <algorithm>
+#include <vector>
+#include <cmath>
+#include <random>
+#include <chrono>
+#include <list>
+#include <deque>
+#include <numeric>
+#include "ManoBibD.h"
