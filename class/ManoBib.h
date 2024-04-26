@@ -57,20 +57,25 @@ public:
     mokiniai(mokiniai&& other) noexcept :
         name(std::move(other.name)), surname(std::move(other.surname)),
         ndRez(std::move(other.ndRez)), egzRez(other.egzRez),
-        average(other.average), med(other.med) { other.clear(); }
+        average(other.average), med(other.med) { other.ndRez.clear(); 
+        other.average = 0; 
+        other.med = 0;
+    }
 
     mokiniai& operator=(mokiniai&& other) noexcept 
     {
         if (this != &other) 
         {
-            clear();
+            ndRez.clear();
             name = std::move(other.name);
             surname = std::move(other.surname);
             ndRez = std::move(other.ndRez);
             egzRez = other.egzRez;
             average = other.average;
             med = other.med;
-            other.clear();
+            other.ndRez.clear();
+            other.average = 0;
+            other.med = 0;
         }
         return *this;
     }
@@ -78,8 +83,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const mokiniai& m) 
     {
         os << std::setw(15) << std::left << m.surname << std::setw(15) << std::left << m.name
-            << std::setw(10) << std::left << m.egzRez << std::setw(10) << std::left << m.average
-            << std::setw(10) << std::left << m.med << "\n";
+           << std::setw(10) << std::left;
         return os;
     }
 
@@ -89,40 +93,14 @@ public:
 
         std::stringstream ss(line);
         std::string name, surname;
-        int egzRez, ndSk;
+        int egzRez;
         double average, med;
-        ss >> surname >> name >> egzRez >> ndSk;
+        ss >> surname >> name >> average >> med;
 
         m.setName(name);
         m.setSurname(surname);
-        m.setEgzRez(egzRez);
-
-        for (int i = 0; i < ndSk; ++i) 
-        {
-            int nd;
-            ss >> nd;
-            m.setNdRez(nd);
-        }
-
-        if (ndSk > 0) 
-        {
-            double sum = std::accumulate(m.getNdRez().begin(), m.getNdRez().end(), 0.0);
-            m.setAverage(sum / ndSk, egzRez);
-        }
-
-        std::vector<int> ndRezCopy = m.getNdRez();
-        std::sort(ndRezCopy.begin(), ndRezCopy.end());
-        if (ndSk % 2 == 0)
-        {
-            double vidurys1 = static_cast<double>(ndRezCopy[ndSk / 2]);
-            double vidurys2 = static_cast<double>(ndRezCopy[ndSk / 2 - 1]);
-            m.setMed(vidurys1, vidurys2);
-        }
-        else 
-        {
-            double vidurys = static_cast<double>(ndRezCopy[ndSk / 2]);
-            m.setMed(vidurys);
-        }
+        m.setAverage(average);
+        m.setMed(med);
 
         return is;
     }
@@ -139,6 +117,7 @@ public:
     void setEgzRez(int egz) { egzRez = egz; }
     void setNdRez(int nd) { ndRez.push_back(nd); }
     void setAverage(double ndRez, double egz) { average = 0.4 * ndRez + 0.6 * egz; }
+    void setAverage(double egz) { average = egz; }
     void setMed(double vid1, double vid2) { med = (vid1 + vid2) / 2; }
     void setMed(double vid) { med = vid; }
 };
