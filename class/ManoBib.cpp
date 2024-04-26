@@ -89,7 +89,7 @@ void spauzdinimasEkrane(vector<mokiniai>& M, int dydis)
 		cout << "-----------------------------------------------------------------" << endl;
 		for (int i = 0; i < dydis; i++)
 		{
-			cout << setw(15) << left << M[i].getSurname() << setw(15) << left << M[i].getName() << setw(20) << left << fixed << std::setprecision(2) << M[i].getAverage() << endl;
+			cout << M[i] << M[i].getAverage() << endl;
 		}
 	}
 	else
@@ -98,7 +98,7 @@ void spauzdinimasEkrane(vector<mokiniai>& M, int dydis)
 		cout << "-----------------------------------------------------------------" << endl;
 		for (int i = 0; i < dydis; i++)
 		{
-			cout << setw(15) << left << M[i].getSurname() << setw(15) << left << M[i].getName() << setw(20) << left << fixed << std::setprecision(2) << M[i].getMed() << endl;
+			cout << M[i] << M[i].getMed() << endl;
 		}
 	}
 }
@@ -107,21 +107,24 @@ void vidurys(vector<mokiniai>& M, int dydis)
 {
 	for (int i = 0; i < dydis; i++)
 	{
-		vector<int> ndRezCopy = M[i].getNdRez();
-		sort(ndRezCopy.begin(), ndRezCopy.end());
-
-		size_t ndDydis = ndRezCopy.size();
-
-		if (ndDydis % 2 == 0)
+		if (!M[i].getNdRez().empty())
 		{
-			double vidurys1 = static_cast<double>(ndRezCopy[ndDydis / 2]);
-			double vidurys2 = static_cast<double>(ndRezCopy[ndDydis / 2 - 1]);
-			M[i].setMed(vidurys1, vidurys2);
-		}
-		else
-		{
-			double vidurys = static_cast<double>(ndRezCopy[ndDydis / 2]);
-			M[i].setMed(vidurys);
+			vector<int> ndRezCopy = M[i].getNdRez();
+			sort(ndRezCopy.begin(), ndRezCopy.end());
+
+			size_t ndDydis = ndRezCopy.size();
+
+			if (ndDydis % 2 == 0)
+			{
+				double vidurys1 = static_cast<double>(ndRezCopy[ndDydis / 2]);
+				double vidurys2 = static_cast<double>(ndRezCopy[ndDydis / 2 - 1]);
+				M[i].setMed(vidurys1, vidurys2);
+			}
+			else
+			{
+				double vidurys = static_cast<double>(ndRezCopy[ndDydis / 2]);
+				M[i].setMed(vidurys);
+			}
 		}
 	}
 }
@@ -129,147 +132,176 @@ void vidurys(vector<mokiniai>& M, int dydis)
 int skaitymasRanka(vector<mokiniai>& M, int dydis)
 {
 	string vardas, pav;
-	int sk, test;
+	double sk, test;
 	int i = 0;
+	char raide;
 
-	while (1)
+	cout << "Ar zinote mokiniu vidurki bei mediana?\n(T) - taip / (bet koks kitas zenklas) - ne" << endl;
+	cin >> raide;
+
+	if (raide == 'T' || raide == 't')
 	{
-		int breakas = 0;
-
 		while (1)
 		{
-			try
-			{
-				cout << "Iveskite mokinio varda. Jei nebenorite rasyti, iveskite 0:" << endl;
-				cin >> vardas;
+			cin.ignore();
+			mokiniai mokinys;
+			cout << "Iveskite mokinio duomenys (pavarde, varda, vidurki, mediana)" << endl;
+			cin >> mokinys;
 
-				if (vardas.find_first_of("0") != string::npos)
-				{
-					breakas = 1;
-					break;
-				}
-				if (vardas.find_first_of("123456789") != string::npos)
-				{
-					cin.clear();
-					cin.ignore(numeric_limits<streamsize>::max(), '\n');
-					throw runtime_error("Bloga ivestis, iveskite mokinio varda be skaiciu arba 0 jeigu nebenorite rasyti.");
-				}
-				else
-				{
-					break;
-				}
-			}
-			catch (const exception& e)
+			M[i] = mokinys;
+
+			cout << "Ar norite baigti mokiniu rasyma?\n(T) - taip / (bet koks kitas zenklas) - ne" << endl;
+			cin >> raide;
+			if (raide == 'T' || raide == 't')
 			{
-				cerr << "Klaida: " << e.what() << endl;
+				break;
 			}
+			i++;
 		}
-
-		if (breakas) break;
-
+		i++;
+	}
+	else
+	{
 		while (1)
 		{
-			try
-			{
-				cout << "Iveskite mokinio pavarde:" << endl;
-				cin >> pav;
+			int breakas = 0;
 
-				if (pav.find_first_of("0123456789") == string::npos)
-				{
-					break;
-				}
-				else
-				{
-					cin.clear();
-					cin.ignore(numeric_limits<streamsize>::max(), '\n');
-					throw runtime_error("Bloga ivestis, iveskite mokinio pavarde be skaiciu.");
-				}
-			}
-			catch (const exception& e)
-			{
-				cerr << "Klaida: " << e.what() << endl;
-			}
-		}
-
-		M[i].setName(vardas);
-		M[i].setSurname(pav);
-
-		double x = 0.0;
-		breakas = 0;
-
-		while (1)
-		{
 			while (1)
 			{
 				try
 				{
-					cout << "Iveskite sekanti nd rezultata. Jei ju nebera, iveskite 0. " << endl;
-					cin >> sk;
+					cout << "Iveskite mokinio varda. Jei nebenorite rasyti, iveskite 0:" << endl;
+					cin >> vardas;
 
-					if (cin.fail())
-					{
-						cin.clear();
-						cin.ignore(numeric_limits<streamsize>::max(), '\n');
-						throw runtime_error("Neteisinga ivestis. Iveskite sveika skaiciu.");
-					}
-					else if (sk == 0 && x == 0)
-					{
-						cin.clear();
-						cin.ignore(numeric_limits<streamsize>::max(), '\n');
-						throw runtime_error("Turi buti iraasytas bent vienas ND rezultatas.");
-					}
-					else if (sk == 0 && x != 0)
+					if (vardas.find_first_of("0") != string::npos)
 					{
 						breakas = 1;
 						break;
+					}
+					if (vardas.find_first_of("123456789") != string::npos)
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						throw runtime_error("Bloga ivestis, iveskite mokinio varda be skaiciu arba 0 jeigu nebenorite rasyti.");
 					}
 					else
 					{
 						break;
 					}
 				}
-				catch (const exception& e) {
+				catch (const exception& e)
+				{
 					cerr << "Klaida: " << e.what() << endl;
 				}
 			}
+
 			if (breakas) break;
 
-			x = x + sk;
-			M[i].setNdRez(sk);
-		}
-
-		while (1)
-		{
-			try
+			while (1)
 			{
-				cout << "Irasykite mokinio egzamino rezultata:" << endl;
-				cin >> sk;
+				try
+				{
+					cout << "Iveskite mokinio pavarde:" << endl;
+					cin >> pav;
 
-				if (cin.fail())
-				{
-					cin.clear();
-					cin.ignore(numeric_limits<streamsize>::max(), '\n');
-					throw runtime_error("Neteisinga ivestis. Irasykite sveika skaiciu");
+					if (pav.find_first_of("0123456789") == string::npos)
+					{
+						break;
+					}
+					else
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						throw runtime_error("Bloga ivestis, iveskite mokinio pavarde be skaiciu.");
+					}
 				}
-				else
+				catch (const exception& e)
 				{
-					break;
+					cerr << "Klaida: " << e.what() << endl;
 				}
 			}
-			catch (const exception& e)
+
+			M[i].setName(vardas);
+			M[i].setSurname(pav);
+
+			double x = 0.0;
+			breakas = 0;
+
+			while (1)
 			{
-				cerr << "Klaida: " << e.what() << endl;
+				while (1)
+				{
+					try
+					{
+						cout << "Iveskite sekanti nd rezultata. Jei ju nebera, iveskite 0. " << endl;
+						cin >> sk;
+
+						if (cin.fail())
+						{
+							cin.clear();
+							cin.ignore(numeric_limits<streamsize>::max(), '\n');
+							throw runtime_error("Neteisinga ivestis. Iveskite sveika skaiciu.");
+						}
+						else if (sk == 0 && x == 0)
+						{
+							cin.clear();
+							cin.ignore(numeric_limits<streamsize>::max(), '\n');
+							throw runtime_error("Turi buti iraasytas bent vienas ND rezultatas.");
+						}
+						else if (sk == 0 && x != 0)
+						{
+							breakas = 1;
+							break;
+						}
+						else
+						{
+							break;
+						}
+					}
+					catch (const exception& e) {
+						cerr << "Klaida: " << e.what() << endl;
+					}
+				}
+				if (breakas) break;
+
+				x = x + sk;
+				M[i].setNdRez(sk);
 			}
-		}
-		M[i].setEgzRez(sk);
 
-		if (M[i].getNdRez().size() > 0)
-		{
-			x = x / M[i].getNdRez().size();
-			M[i].setAverage(x, test);
-		}
+			while (1)
+			{
+				try
+				{
+					cout << "Irasykite mokinio egzamino rezultata:" << endl;
+					cin >> test;
 
-		i++;
+					if (cin.fail())
+					{
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						throw runtime_error("Neteisinga ivestis. Irasykite sveika skaiciu");
+					}
+					else
+					{
+						break;
+					}
+				}
+				catch (const exception& e)
+				{
+					cerr << "Klaida: " << e.what() << endl;
+				}
+			}
+			M[i].setEgzRez(test);
+
+
+			if (M[i].getNdRez().size() > 0)
+			{
+				x = x / M[i].getNdRez().size();
+				M[i].setAverage(x, test);
+			}
+
+			i++;
+		}
 	}
 
 	dydis = i;
