@@ -8,4 +8,5 @@
 #include <chrono>
 #include <list>
 #include <deque>
+#include <memory>
 #include "ManoBib.h"
