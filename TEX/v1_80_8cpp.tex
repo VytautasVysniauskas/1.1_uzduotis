@@ -1,0 +1,84 @@
+\doxysection{v1.0.cpp File Reference}
+\hypertarget{v1_80_8cpp}{}\label{v1_80_8cpp}\index{v1.0.cpp@{v1.0.cpp}}
+
+
+Pagrindinis failas skirtas darbui su studentu duomenimis.  
+
+
+{\ttfamily \#include "{}Bibliotekos.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{v1_80_8cpp_aefa7860caeeb9d98a67f506b9a6e3457}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classmokiniai}{mokiniai}} \&m)
+\begin{DoxyCompactList}\small\item\em Operatorius skirtas surasyti duomenis. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{v1_80_8cpp_ac4894d5f15c32a404c37505ad25a5643}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{classmokiniai}{mokiniai}} \&m)
+\begin{DoxyCompactList}\small\item\em Operatorius skirtas skaityti duomenis. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{v1_80_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Pagrindine funkcija skirta visam darbui su duomenimis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pagrindinis failas skirtas darbui su studentu duomenimis. 
+
+Siame faile yra priegos prie visu pagrindiniu funkciju. Vartotojas gali pasirinkti kurias funkcijas jie nori atlikti ir pagal tai jie yra nuvedami i atitinkamas funkcijas. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{v1_80_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{v1_80_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{v1.0.cpp@{v1.0.cpp}!main@{main}}
+\index{main@{main}!v1.0.cpp@{v1.0.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pagrindine funkcija skirta visam darbui su duomenimis. 
+
+Si funkcija nukreipia vartotoja kur jie nori eiti, ka jie nori daryti. Kaip jie elgiasi su duomenimis priklauso daugiasia sioje funkcijoje, ji yra skirta darbui su vartotoju.
+
+\begin{DoxyReturn}{Returns}
+-\/ Grazina 0 kodui veikiant. 
+\end{DoxyReturn}
+\Hypertarget{v1_80_8cpp_aefa7860caeeb9d98a67f506b9a6e3457}\label{v1_80_8cpp_aefa7860caeeb9d98a67f506b9a6e3457} 
+\index{v1.0.cpp@{v1.0.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!v1.0.cpp@{v1.0.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classmokiniai}{mokiniai}} \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Operatorius skirtas surasyti duomenis. 
+
+Sis operatorius leidzia surasyti duomenis islaikant sklandu formata.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & -\/ Spauzdinimo vieta. \\
+\hline
+{\em m} & -\/ Studento duomenis kurie bus spauzdinami. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ Rodo i spauzdinimo kelia. 
+\end{DoxyReturn}
+\Hypertarget{v1_80_8cpp_ac4894d5f15c32a404c37505ad25a5643}\label{v1_80_8cpp_ac4894d5f15c32a404c37505ad25a5643} 
+\index{v1.0.cpp@{v1.0.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!v1.0.cpp@{v1.0.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is,  }\item[{\mbox{\hyperlink{classmokiniai}{mokiniai}} \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Operatorius skirtas skaityti duomenis. 
+
+Sis operatorius leidzia formaliai perskaityti visus duomenis, yra skirtas greitam naudojimui rasymui ranka duomenis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & -\/ Skaitymo laukas. \\
+\hline
+{\em m} & -\/ Studento duomenis kurie bus pildomi. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ Kelias i skaitymo lauka. 
+\end{DoxyReturn}

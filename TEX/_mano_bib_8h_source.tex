@@ -1,0 +1,118 @@
+\doxysection{Mano\+Bib.\+h}
+\hypertarget{_mano_bib_8h_source}{}\label{_mano_bib_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_bibliotekos_8h}{Bibliotekos.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ namespace\ }std::chrono;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classzmogus}{zmogus}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{string}\ name;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{string}\ surname;}
+\DoxyCodeLine{00016\ \ \ \ \ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}()\ :\ name(\textcolor{stringliteral}{"{}"{}}),\ surname(\textcolor{stringliteral}{"{}"{}})\ \{\}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classzmogus_abd1075738cca43d00c7738b9e830725d}{zmogus}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ n)\ :\ name(n),\ surname(\textcolor{stringliteral}{"{}"{}})\ \{\}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classzmogus_a1d517e7dcb5a14c7b37ba45af4e382e4}{zmogus}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ n,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ s)\ :\ name(n),\ surname(s)\ \{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classzmogus_a67d08c33049ff379f5c8b72745416239}{\string~zmogus}}()\ \{\}\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classzmogus_a32a5fcaa1e495006a33a9cccf53a0092}{printInfo}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ \mbox{\hyperlink{classzmogus_a6a9e286f2f604f4126779115bb9a40b2}{getName}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ name;\ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ \mbox{\hyperlink{classzmogus_a41f8e836235f07d7de4d09806ca9f68b}{getSurname}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ surname;\ \}}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00066\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classmokiniai}{mokiniai}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classzmogus}{zmogus}}\ \{}
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ std::string\ name;\ }
+\DoxyCodeLine{00069\ \ \ \ \ std::string\ surname;\ }
+\DoxyCodeLine{00070\ \ \ \ \ std::vector<int>\ ndRez;\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ egzRez;\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ average;\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ med;\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Konstruktoriu,\ destruktoriu\ ir\ priskyrimo\ operatoriu\ deklaracijos...}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ Getteriu\ ir\ setteriu\ deklaracijos...}}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}()\ :\ egzRez(0),\ average(0),\ med(0)\ \{\}}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}(\textcolor{keyword}{const}\ std::string\&\ n)\ :\ name(n),\ egzRez(0),\ average(0),\ med(0)\ \{\}}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}(\textcolor{keyword}{const}\ std::string\&\ n,\ \textcolor{keyword}{const}\ std::string\&\ s)\ :\ name(n),\ surname(s),\ egzRez(0),\ average(0),\ med(0)\ \{\}}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}(\textcolor{keyword}{const}\ std::string\&\ n,\ \textcolor{keyword}{const}\ std::string\&\ s,\ \textcolor{keywordtype}{int}\ egz)\ :\ name(n),\ surname(s),\ egzRez(egz),\ average(0),\ med(0)\ \{\}}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}(\textcolor{keyword}{const}\ std::string\&\ n,\ \textcolor{keyword}{const}\ std::string\&\ s,\ \textcolor{keywordtype}{int}\ egz,\ \textcolor{keywordtype}{double}\ av)\ :\ name(n),\ surname(s),\ egzRez(egz),\ average(av),\ med(0)\ \{\}}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}(\textcolor{keyword}{const}\ std::string\&\ n,\ \textcolor{keyword}{const}\ std::string\&\ s,\ \textcolor{keywordtype}{int}\ egz,\ \textcolor{keywordtype}{double}\ av,\ \textcolor{keywordtype}{double}\ m)\ :\ name(n),\ surname(s),\ egzRez(egz),\ average(av),\ med(m)\ \{\}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmokiniai}{mokiniai}}\&\ other)\ :\ name(other.name),\ surname(other.surname),\ ndRez(other.ndRez),\ egzRez(other.egzRez),\ average(other.average),\ med(other.med)\ \{\}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}(\mbox{\hyperlink{classmokiniai}{mokiniai}}\&\&\ other)\ noexcept\ :\ name(std::move(other.name)),\ surname(std::move(other.surname)),\ ndRez(std::move(other.ndRez)),\ egzRez(other.egzRez),\ average(other.average),\ med(other.med)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ other.egzRez\ =\ 0;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ other.average\ =\ 0;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ other.med\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classmokiniai}{mokiniai}}\&\ other)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ name\ =\ other.name;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ surname\ =\ other.surname;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ ndRez\ =\ other.ndRez;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ egzRez\ =\ other.egzRez;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ average\ =\ other.average;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ med\ =\ other.med;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{classmokiniai}{mokiniai}}\&\ operator=(\mbox{\hyperlink{classmokiniai}{mokiniai}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ name\ =\ std::move(other.name);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ surname\ =\ std::move(other.surname);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ ndRez\ =\ std::move(other.ndRez);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ egzRez\ =\ other.egzRez;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ average\ =\ other.average;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ med\ =\ other.med;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ other.egzRez\ =\ 0;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ other.average\ =\ 0;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ other.med\ =\ 0;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classmokiniai_aefa7860caeeb9d98a67f506b9a6e3457}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classmokiniai}{mokiniai}}\&\ m);}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{friend}\ std::istream\&\ \mbox{\hyperlink{classmokiniai_ac4894d5f15c32a404c37505ad25a5643}{operator>>}}(std::istream\&\ is,\ \mbox{\hyperlink{classmokiniai}{mokiniai}}\&\ m);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getName()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ name;\ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ getSurname()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ surname;\ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ getNdRez()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ ndRez;\ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{int}\ getEgzRez()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ egzRez;\ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{double}\ getAverage()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ average;\ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{double}\ getMed()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ med;\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ setName(\textcolor{keyword}{const}\ std::string\&\ n)\ \{\ name\ =\ n;\ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ setSurname(\textcolor{keyword}{const}\ std::string\&\ s)\ \{\ surname\ =\ s;\ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ setEgzRez(\textcolor{keywordtype}{int}\ egz)\ \{\ egzRez\ =\ egz;\ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ setNdRez(\textcolor{keywordtype}{int}\ nd)\ \{\ ndRez.push\_back(nd);\ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ setAverage(\textcolor{keywordtype}{double}\ ndRezAvg,\ \textcolor{keywordtype}{double}\ egz)\ \{\ average\ =\ 0.4\ *\ ndRezAvg\ +\ 0.6\ *\ egz;\ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ setAverage(\textcolor{keywordtype}{double}\ av)\ \{\ average\ =\ av;\ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ setMed(\textcolor{keywordtype}{double}\ vid1,\ \textcolor{keywordtype}{double}\ vid2)\ \{\ med\ =\ (vid1\ +\ vid2)\ /\ 2;\ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ setMed(\textcolor{keywordtype}{double}\ m)\ \{\ med\ =\ m;\ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classmokiniai_a012406369a58a41062755be3042a4b83}{printInfo}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00148\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Name:\ "{}}\ <<\ getName()\ <<\ \textcolor{stringliteral}{"{},\ Surname:\ "{}}\ <<\ getSurname()\ <<\ std::endl;}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ Funkciju\ prototipu\ deklaracijos,\ jos\ aprasytos\ ManoBib.cpp\ faile.}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_mano_bib_8cpp_a64d5425d8b5fb716306a830bf8d9ed3f}{spauzdinimasFaile}}(vector<mokiniai>\&,\ vector<mokiniai>\&,\ \textcolor{keywordtype}{int},\ duration<double>\&);}
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_mano_bib_8cpp_af4a121a28da1279d8494722e56859fd6}{spauzdinimasEkrane}}(vector<mokiniai>\&,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00158\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_mano_bib_8cpp_a49bf0641f4a991a50f549f40e939fc7b}{vidurys}}(vector<mokiniai>\&,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00159\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_mano_bib_8cpp_abaf34bd8c85d7a0ead9b49893dca9192}{skaitymasRanka}}(vector<mokiniai>\&,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_mano_bib_8cpp_a6be4d71075719ed2bc6f7df589d67614}{skaitymasFailo}}(vector<mokiniai>\&,\ \textcolor{keywordtype}{int},\ duration<double>\&);}
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_mano_bib_8cpp_afeb2c6ace6e4d469c4a7d8548cb607b7}{rikiavimas}}(vector<mokiniai>\&,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char});}
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_mano_bib_8cpp_a8b6c036385defa13c3f846558bd1fd92}{duomenuGeneravimas}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_mano_bib_8cpp_a317829861e13f94fae4077a4b6d86c3c}{kiekGeneruoti}}();}
+
+\end{DoxyCode}

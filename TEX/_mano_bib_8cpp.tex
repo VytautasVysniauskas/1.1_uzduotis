@@ -1,0 +1,191 @@
+\doxysection{Mano\+Bib.\+cpp File Reference}
+\hypertarget{_mano_bib_8cpp}{}\label{_mano_bib_8cpp}\index{ManoBib.cpp@{ManoBib.cpp}}
+
+
+Visos funkcijos darbui su studentu duomenim.  
+
+
+{\ttfamily \#include "{}Mano\+Bib.\+h"{}}\newline
+{\ttfamily \#include "{}Bibliotekos.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_mano_bib_8cpp_a64d5425d8b5fb716306a830bf8d9ed3f}{spauzdinimas\+Faile}} (vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&M, vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&B, int dydis, duration$<$ double $>$ \&laikas3)
+\begin{DoxyCompactList}\small\item\em Spauzdina studentu rezultatus 2 failuose, pazengusiuju ir bukuju. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_mano_bib_8cpp_af4a121a28da1279d8494722e56859fd6}{spauzdinimas\+Ekrane}} (vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&M, int dydis)
+\begin{DoxyCompactList}\small\item\em Spausdina studentu duomenis ekrane. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_mano_bib_8cpp_a49bf0641f4a991a50f549f40e939fc7b}{vidurys}} (vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&M, int dydis)
+\begin{DoxyCompactList}\small\item\em Funkcija kuri suskaiciuoja mediana. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_mano_bib_8cpp_abaf34bd8c85d7a0ead9b49893dca9192}{skaitymas\+Ranka}} (vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&M, int dydis)
+\begin{DoxyCompactList}\small\item\em Skaito studenta data kuri yra irasyta ranka. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_mano_bib_8cpp_afeb2c6ace6e4d469c4a7d8548cb607b7}{rikiavimas}} (vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&M, int dydis, char pasirinkimas)
+\begin{DoxyCompactList}\small\item\em Rikiuoja studentu duomenis. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_mano_bib_8cpp_a6be4d71075719ed2bc6f7df589d67614}{skaitymas\+Failo}} (vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&M, int dydis, duration$<$ double $>$ \&laikas1)
+\begin{DoxyCompactList}\small\item\em Skaito studentu duomenis is failo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_mano_bib_8cpp_a8b6c036385defa13c3f846558bd1fd92}{duomenu\+Generavimas}} (int kiek)
+\begin{DoxyCompactList}\small\item\em Generuoja duomenis i faila. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_mano_bib_8cpp_a317829861e13f94fae4077a4b6d86c3c}{kiek\+Generuoti}} ()
+\begin{DoxyCompactList}\small\item\em Prasomo vartotojo pateikti kiek duomenu norima generuoti. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Visos funkcijos darbui su studentu duomenim. 
+
+Siame faile yra naudojamos funckijos skirtui darbui su studentu duomenimis, kaip generavimas, rusiavimas, skaitymas, spauzdinimas ir t.\+t. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_mano_bib_8cpp_a8b6c036385defa13c3f846558bd1fd92}\label{_mano_bib_8cpp_a8b6c036385defa13c3f846558bd1fd92} 
+\index{ManoBib.cpp@{ManoBib.cpp}!duomenuGeneravimas@{duomenuGeneravimas}}
+\index{duomenuGeneravimas@{duomenuGeneravimas}!ManoBib.cpp@{ManoBib.cpp}}
+\doxysubsubsection{\texorpdfstring{duomenuGeneravimas()}{duomenuGeneravimas()}}
+{\footnotesize\ttfamily void duomenu\+Generavimas (\begin{DoxyParamCaption}\item[{int}]{kiek }\end{DoxyParamCaption})}
+
+
+
+Generuoja duomenis i faila. 
+
+Si funkcija generuoja pasirinktina duomenu skaiciu ir juos iraso i faila.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & Vartotojo pasirinkimas kiek duomenu norima generuoti. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_mano_bib_8cpp_a317829861e13f94fae4077a4b6d86c3c}\label{_mano_bib_8cpp_a317829861e13f94fae4077a4b6d86c3c} 
+\index{ManoBib.cpp@{ManoBib.cpp}!kiekGeneruoti@{kiekGeneruoti}}
+\index{kiekGeneruoti@{kiekGeneruoti}!ManoBib.cpp@{ManoBib.cpp}}
+\doxysubsubsection{\texorpdfstring{kiekGeneruoti()}{kiekGeneruoti()}}
+{\footnotesize\ttfamily void kiek\+Generuoti (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prasomo vartotojo pateikti kiek duomenu norima generuoti. 
+
+Sioje funkcijoje vartotojas turi 5 pasirinkimus generuojant duomenis\+: 1 000, 10 000, 100 000, 1 000 000 ir 10 000 000. \Hypertarget{_mano_bib_8cpp_afeb2c6ace6e4d469c4a7d8548cb607b7}\label{_mano_bib_8cpp_afeb2c6ace6e4d469c4a7d8548cb607b7} 
+\index{ManoBib.cpp@{ManoBib.cpp}!rikiavimas@{rikiavimas}}
+\index{rikiavimas@{rikiavimas}!ManoBib.cpp@{ManoBib.cpp}}
+\doxysubsubsection{\texorpdfstring{rikiavimas()}{rikiavimas()}}
+{\footnotesize\ttfamily void rikiavimas (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&}]{M,  }\item[{int}]{dydis,  }\item[{char}]{pasirinkimas }\end{DoxyParamCaption})}
+
+
+
+Rikiuoja studentu duomenis. 
+
+Sioje funkcijoje yra rikiuojami duomenis pagal naudotojo pasirinkima\+: vardus, pavardes, vidurki, mediana.
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & -\/ Vektorius laikantis visus studentu duomenis. \\
+\hline
+{\em dydis} & -\/ Studentu kiekis. \\
+\hline
+{\em pasirinkimas} & -\/ Vartotojo rikiavimo pasirinkimas. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_mano_bib_8cpp_a6be4d71075719ed2bc6f7df589d67614}\label{_mano_bib_8cpp_a6be4d71075719ed2bc6f7df589d67614} 
+\index{ManoBib.cpp@{ManoBib.cpp}!skaitymasFailo@{skaitymasFailo}}
+\index{skaitymasFailo@{skaitymasFailo}!ManoBib.cpp@{ManoBib.cpp}}
+\doxysubsubsection{\texorpdfstring{skaitymasFailo()}{skaitymasFailo()}}
+{\footnotesize\ttfamily int skaitymas\+Failo (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&}]{M,  }\item[{int}]{dydis,  }\item[{duration$<$ double $>$ \&}]{laikas1 }\end{DoxyParamCaption})}
+
+
+
+Skaito studentu duomenis is failo. 
+
+Sioje funkcijoje duomenys yra skaitomi is failo ir dedami i vektoriu tolimesniam naudojimui.
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & -\/ Vektorius kuris laikys visus studentu duomenis. \\
+\hline
+{\em dydis} & -\/ Studentu kiekis. \\
+\hline
+{\em laikas1} & -\/ Matuojamas laikas kiek uztrunka failo skaitymas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ Grazinamas studentu kiekis tolimesniam darbui. 
+\end{DoxyReturn}
+\Hypertarget{_mano_bib_8cpp_abaf34bd8c85d7a0ead9b49893dca9192}\label{_mano_bib_8cpp_abaf34bd8c85d7a0ead9b49893dca9192} 
+\index{ManoBib.cpp@{ManoBib.cpp}!skaitymasRanka@{skaitymasRanka}}
+\index{skaitymasRanka@{skaitymasRanka}!ManoBib.cpp@{ManoBib.cpp}}
+\doxysubsubsection{\texorpdfstring{skaitymasRanka()}{skaitymasRanka()}}
+{\footnotesize\ttfamily int skaitymas\+Ranka (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&}]{M,  }\item[{int}]{dydis }\end{DoxyParamCaption})}
+
+
+
+Skaito studenta data kuri yra irasyta ranka. 
+
+Sioje funkcijoje yra prasomo naudotojo yrasyti duomenis ranka, jie gali pasirinkti ar rasyti trumpesne versija (su mediana ir vidurkiu zinomu) ar ilegense (su namu darbu rezultatais vieotoj vidurkio ir medianos)
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & -\/ Vektorius kuris laiko visus studentu duomenis. \\
+\hline
+{\em dydis} & -\/ Studentu kiekis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ Grazina irasytu studentu kieki tolimensiui darbui. 
+\end{DoxyReturn}
+\Hypertarget{_mano_bib_8cpp_af4a121a28da1279d8494722e56859fd6}\label{_mano_bib_8cpp_af4a121a28da1279d8494722e56859fd6} 
+\index{ManoBib.cpp@{ManoBib.cpp}!spauzdinimasEkrane@{spauzdinimasEkrane}}
+\index{spauzdinimasEkrane@{spauzdinimasEkrane}!ManoBib.cpp@{ManoBib.cpp}}
+\doxysubsubsection{\texorpdfstring{spauzdinimasEkrane()}{spauzdinimasEkrane()}}
+{\footnotesize\ttfamily void spauzdinimas\+Ekrane (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&}]{M,  }\item[{int}]{dydis }\end{DoxyParamCaption})}
+
+
+
+Spausdina studentu duomenis ekrane. 
+
+Si funkcija spausdina rezultatus i ekrana. Kadandgi duomenu negalima aiskiai atskirti, ypac naudojant ju itin daug, jie visi yra spauzdinami bendrai.
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & -\/ Vektorius kuris saugo visus studentu duomenis. \\
+\hline
+{\em dydis} & -\/ Studentu duomenu kiekis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_mano_bib_8cpp_a64d5425d8b5fb716306a830bf8d9ed3f}\label{_mano_bib_8cpp_a64d5425d8b5fb716306a830bf8d9ed3f} 
+\index{ManoBib.cpp@{ManoBib.cpp}!spauzdinimasFaile@{spauzdinimasFaile}}
+\index{spauzdinimasFaile@{spauzdinimasFaile}!ManoBib.cpp@{ManoBib.cpp}}
+\doxysubsubsection{\texorpdfstring{spauzdinimasFaile()}{spauzdinimasFaile()}}
+{\footnotesize\ttfamily void spauzdinimas\+Faile (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&}]{M,  }\item[{vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&}]{B,  }\item[{int}]{dydis,  }\item[{duration$<$ double $>$ \&}]{laikas3 }\end{DoxyParamCaption})}
+
+
+
+Spauzdina studentu rezultatus 2 failuose, pazengusiuju ir bukuju. 
+
+Sioje funkcijoje galima pasirinkti ar spauzdinti rezultatus pagal vidurki ar mediana. Yra atskiriami studentai su vidurkiu mazesniu ar lygu 5 ir didesniu nei 5.
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & -\/ vektorius kuris laiko studentu data, bus naudojamas kaip pazengusiuju vektorius. \\
+\hline
+{\em B} & -\/ tuscias vektorius, laikys bukiuju rezultatus. \\
+\hline
+{\em dydis} & -\/ laiko kiek studentu is viso yra. \\
+\hline
+{\em laikas3} & -\/ Skaiciuoja kiek uztrunka duomenu skirtsymas i reikiamus konteinerius. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_mano_bib_8cpp_a49bf0641f4a991a50f549f40e939fc7b}\label{_mano_bib_8cpp_a49bf0641f4a991a50f549f40e939fc7b} 
+\index{ManoBib.cpp@{ManoBib.cpp}!vidurys@{vidurys}}
+\index{vidurys@{vidurys}!ManoBib.cpp@{ManoBib.cpp}}
+\doxysubsubsection{\texorpdfstring{vidurys()}{vidurys()}}
+{\footnotesize\ttfamily void vidurys (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classmokiniai}{mokiniai}} $>$ \&}]{M,  }\item[{int}]{dydis }\end{DoxyParamCaption})}
+
+
+
+Funkcija kuri suskaiciuoja mediana. 
+
+Si funkcija randa viduri tarp studento namu darbu rezultatu ir tuomet tokiu budu randa mediana.
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & -\/ Vektorius kuris saugo visus studento duomenis. \\
+\hline
+{\em dydis} & -\/ Duomenu kiekis. \\
+\hline
+\end{DoxyParams}
