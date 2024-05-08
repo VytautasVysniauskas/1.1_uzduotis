@@ -1,5 +1,15 @@
 # 1_uzduotis
 
+Versija 0.1 - Naudoja vektorius pirma karta, yra lyginamas ju ir C masyvu veikimas.
+Versija 0.2 - Pradedamas darbas su didesniu mokiniu kiekiu, vyksta paprastas darbas su duomenimis.
+Versija 0.3 - Nuo 1 failo persikeliama i 4, atskiriami specifiniai kodu laukai i jam patogias vietas.
+Versija 0.4 - Yra testuojamas greitis tarp skirtingu duomenu kiekio ir matuojamas lyginant kaip jis keiciasi.
+Versija 1.0 - Kuriami deque ir list tipu kodai, yra naudojamos 3 strategijos koda kompliuojant ir lyginamas ju visu greitis.
+Versija 1.1 - Sukuriamos klases ir mokinamasi darbas su jomis, pratesiamas darbas su vektoriu kodu.
+Versija 1.2 - Idedama penkiu metodu taisykle bei naujos ivesties/isvesties metodai.
+Versija 1.5 - Pakeiciamas klasiu prieinamumas, sukuriamos bazines klases. Padaro koda saugesni ir lengvesni keitimui.
+Versija 2.0 - Galutinis kodas ir senenses ju versijos yra dokumentuojamos.
+
 **MakeFile parsisiuntimas**
 Pries pradedant naudojima, jums pirmiausia reikes parsisiusti make naudojimui, stai ka jums reikia padaryti:
 - Nueiti i https://gnuwin32.sourceforge.net/packages/make.htm ir parsisiusti naujausia versija
