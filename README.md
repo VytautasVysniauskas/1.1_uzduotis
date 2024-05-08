@@ -10,6 +10,7 @@ Pries pradedant naudojima, jums pirmiausia reikes parsisiusti make naudojimui, s
 - Spausti "environment variables"
 - Ant Variable "Path" spausti ir tada spausti edit
 - Sukurti new lauka ir iklijuoti nukopijuota direktorija
+- Kad patvirtintumete instaliacija, comandos terminale irasykite "make --version" be kabuciu.
 
 Po situ zingsiu make turetu buti instaliuotas jusu kompiuteryje, iskilus problemoms
 galite paieskoti specifiniu sprendimu internete arba kitu budu instaliuoti make.
