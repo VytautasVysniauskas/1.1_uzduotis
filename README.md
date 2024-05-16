@@ -1,5 +1,42 @@
 # 1_uzduotis
 
+**INSTRUKCIJA**
+
+**MakeFile parsisiuntimas**
+Pries pradedant naudojima, jums pirmiausia reikes parsisiusti make naudojimui, stai ka jums reikia padaryti:
+- Nueiti i https://gnuwin32.sourceforge.net/packages/make.htm ir parsisiusti naujausia versija
+- Po parsisiuntimo reikia paleisti programa kuria parsiusiuntem, ji turetu parsiusti kita programma.
+- Sekite visas instrunkcijas kurios parodytos, pasirinkite norima programos destinacija.
+- Po parsisiuntimo nukopijuokite direktorija i bin.
+- Eiti "edit the system environment variables" nustatymus"
+- Spausti "environment variables"
+- Ant Variable "Path" spausti ir tada spausti edit
+- Sukurti new lauka ir iklijuoti nukopijuota direktorija
+- Kad patvirtintumete instaliacija, comandos terminale irasykite "make --version" be kabuciu.
+
+Po situ zingsiu make turetu buti instaliuotas jusu kompiuteryje, iskilus problemoms
+galite paieskoti specifiniu sprendimu internete arba kitu budu instaliuoti make.
+
+**Kaip Naudoti programoj:**
+
+Kur praso rasyti raide reikia rasyti TIK viena raide.
+Failo pavadinimus rasyti pilnus, kuriant tekstinius nepamirskite prideti .txt prie galo.
+Jusu bus klausiami dalykai tokia eile, R reiskia atssakyti raide, S - žodžiu:
+- Ar norite generuoti duomenis? (R)
+- Irasykite failo pavadinima kuriame bus irasyti generuoti duomenys. (S) (Jeigu pasirinkote generuoti duomenis)
+- Ar norite duomenys rasyti ranka ar skaityti is failo? (R)
+- Is kurio failo norite skaityti duomenys? (S) (Jeigu pasirinkote skaityti is failo)
+- Kuria tvarka norite juos rusiuoti? (R)
+- Ar norite atsakyma spauzdinti i faila ar ekrana? (R)
+- Ar norite kad rezultatai rodyti vidurki ar mediana? (R)
+
+Rankinis duomenu rasymas yra irgi taip pat paprastai apibudinami. Jum bus pasakyta kada rasyti 0 jeigu norite baigti rasyti duomenis.
+Jums reikes rasyti
+- Vardas
+- Pavarde
+- Namu darbu rezultatus (Iki tol kol irasyte 0)
+- Egzamino rezultata
+
 Vektoriu std::vector ir savo sukurtu MyVector push_back vidutiniai laikai buvo tikrinami, stai ju rezultatai:
 | **Elementu kiekis** 	| **std::vector** 	| **MyVector** 	|
 |---------------------	|:---------------:	|:------------:	|
