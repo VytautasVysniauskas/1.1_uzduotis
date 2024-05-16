@@ -2,21 +2,6 @@
 
 **INSTRUKCIJA**
 
-**MakeFile parsisiuntimas**
-Pries pradedant naudojima, jums pirmiausia reikes parsisiusti make naudojimui, stai ka jums reikia padaryti:
-- Nueiti i https://gnuwin32.sourceforge.net/packages/make.htm ir parsisiusti naujausia versija
-- Po parsisiuntimo reikia paleisti programa kuria parsiusiuntem, ji turetu parsiusti kita programma.
-- Sekite visas instrunkcijas kurios parodytos, pasirinkite norima programos destinacija.
-- Po parsisiuntimo nukopijuokite direktorija i bin.
-- Eiti "edit the system environment variables" nustatymus"
-- Spausti "environment variables"
-- Ant Variable "Path" spausti ir tada spausti edit
-- Sukurti new lauka ir iklijuoti nukopijuota direktorija
-- Kad patvirtintumete instaliacija, comandos terminale irasykite "make --version" be kabuciu.
-
-Po situ zingsiu make turetu buti instaliuotas jusu kompiuteryje, iskilus problemoms
-galite paieskoti specifiniu sprendimu internete arba kitu budu instaliuoti make.
-
 **Kaip Naudoti programoj:**
 
 Kur praso rasyti raide reikia rasyti TIK viena raide.
