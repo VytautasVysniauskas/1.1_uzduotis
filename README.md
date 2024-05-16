@@ -7,6 +7,7 @@
 - Parsisiusnte zip faila is release puslapio, atidarykite "SetupVektoriai.exe". Nuo ten instrukcijos bus surasytos.
 - Darbaulaukyje bei C:/Program files/VU/Vytautas-Vysniauskas atsiras "Vektoriai" failas, tenais ir galesite ja naudoti.
 - Norint istrinti programa, nueje i direktorija C:/Program files/VU/Vytautas-Vysniauskas atidarykite programa "unins000.exe", nuo ten istrinti bus paprasta.
+- Jums taip pat bus parsiusti 2 duomenu failai. Duom1 (10 000 duomenu) ir Duom2 (100 000 duomenu). Juos galite naudoti testavimui arba generuoti savo duomenis.
 
 **Kaip Naudoti programoj:**
 
