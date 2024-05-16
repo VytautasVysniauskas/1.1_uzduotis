@@ -2,6 +2,10 @@
 
 **INSTRUKCIJA**
 
+**Kaip parsisiusti programa**
+
+Parsisiusnte zip faila is release puslapio, atidarykite "SetupVektoriai.exe". Nuo ten instrukcijos bus surasytos.
+
 **Kaip Naudoti programoj:**
 
 Kur praso rasyti raide reikia rasyti TIK viena raide.
