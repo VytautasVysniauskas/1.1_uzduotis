@@ -1,6 +1,6 @@
 # 1_uzduotis
 
-Vektoriu std::vector ir savo sukurtu MyVector push_back laikai buvo tikrinami, stai ju rezultatai:
+Vektoriu std::vector ir savo sukurtu MyVector push_back vidutiniai laikai buvo tikrinami, stai ju rezultatai:
 | **Elementu kiekis** 	| **std::vector** 	| **MyVector** 	|
 |---------------------	|:---------------:	|:------------:	|
 | 100 000             	|         0.00152 	|      0.00100 	|
